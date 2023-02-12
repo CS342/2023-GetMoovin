@@ -12,8 +12,8 @@
 
 
 // MARK: - Mock Upload Data Storage Provider
-"MOCK_UPLOAD_TAB_TITLE" = "Mock Upload";
+"MOCK_UPLOAD_TAB_TITLE" = "Photo Upload";
 
 
 // MARK: - Schedule
-"SCHEDULE_TAB_TITLE" = "Schedule";
+"SCHEDULE_TAB_TITLE" = "Goals";
