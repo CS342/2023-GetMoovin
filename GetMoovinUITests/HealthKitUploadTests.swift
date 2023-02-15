@@ -45,8 +45,8 @@ class HealthKitUploadTests: XCTestCase {
     private func navigateToMockUpload() throws {
         let app = XCUIApplication()
         
-        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Mock Upload"].waitForExistence(timeout: 0.5))
-        app.tabBars["Tab Bar"].buttons["Mock Upload"].tap()
+        XCTAssertTrue(app.tabBars["Tab Bar"].buttons["Photo Upload"].waitForExistence(timeout: 0.5))
+        app.tabBars["Tab Bar"].buttons["Photo Upload"].tap()
     }
     
     private func assertObservationCellPresent(_ shouldBePresent: Bool, pressIfPresent: Bool = true) throws {
