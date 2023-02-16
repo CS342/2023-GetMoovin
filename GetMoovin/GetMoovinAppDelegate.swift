@@ -13,14 +13,14 @@ import FirebaseAccount
 import FirebaseAuth
 import FirestoreDataStorage
 import FirestoreStoragePrefixUserIdAdapter
+import GetMoovinMockDataStorageProvider
+import GetMoovinSchedule
 import HealthKit
 import HealthKitDataSource
 import HealthKitToFHIRAdapter
 import Questionnaires
 import Scheduler
 import SwiftUI
-import GetMoovinMockDataStorageProvider
-import GetMoovinSchedule
 
 
 class GetMoovinAppDelegate: CardinalKitAppDelegate {

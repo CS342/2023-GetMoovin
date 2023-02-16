@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
 import GetMoovinSharedContext
+import SwiftUI
 
 
 struct IconView: View {
