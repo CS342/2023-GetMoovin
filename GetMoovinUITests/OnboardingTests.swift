@@ -31,9 +31,9 @@ class OnboardingTests: XCTestCase {
         try app.navigateOnboardingFlow(assertThatHealthKitConsentIsShown: true)
         
         let tabBar = app.tabBars["Tab Bar"]
-        XCTAssertTrue(tabBar.buttons["Schedule"].waitForExistence(timeout: 2))
+        XCTAssertTrue(tabBar.buttons["Goals"].waitForExistence(timeout: 2))
         XCTAssertTrue(tabBar.buttons["Contacts"].waitForExistence(timeout: 2))
-        XCTAssertTrue(tabBar.buttons["Mock Upload"].waitForExistence(timeout: 2))
+        XCTAssertTrue(tabBar.buttons["Photo Upload"].waitForExistence(timeout: 2))
     }
 }
 
