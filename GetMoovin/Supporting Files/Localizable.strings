@@ -17,3 +17,6 @@
 
 // MARK: - Schedule
 "SCHEDULE_TAB_TITLE" = "Goals";
+
+// MARK: - Photo Upload
+"PHOTO_UPLOAD_TAB_TITLE" = "Photo Upload";
