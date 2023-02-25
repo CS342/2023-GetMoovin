@@ -18,6 +18,7 @@ struct HomeView: View {
         case schedule
         case contact
         case mockUpload
+        case stepCount
     }
     
     
@@ -41,6 +42,12 @@ struct HomeView: View {
                 .tabItem {
                     Label("MOCK_UPLOAD_TAB_TITLE", systemImage: "server.rack")
                 }
+            StepCountView()
+                .tag(Tabs.stepCount)
+                .tabItem {
+                    Label("Your Step Count", systemImage: "figure.walk")
+                }
+
         }
     }
 }
