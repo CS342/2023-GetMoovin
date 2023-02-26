@@ -14,10 +14,6 @@ import SwiftUI
 public struct OnboardingFlow: View {
     enum Step: String, Codable {
         case interestingModules
-        case consent
-        case accountSetup
-        case login
-        case signUp
         case healthKitPermissions
     }
     
@@ -32,14 +28,6 @@ public struct OnboardingFlow: View {
                     switch onboardingStep {
                     case .interestingModules:
                         InterestingModules(onboardingSteps: $onboardingSteps)
-                    case .consent:
-                        Consent(onboardingSteps: $onboardingSteps)
-                    case .accountSetup:
-                        AccountSetup(onboardingSteps: $onboardingSteps)
-                    case .login:
-                        GetMoovinLogin()
-                    case .signUp:
-                        GetMoovinSignUp()
                     case .healthKitPermissions:
                         HealthKitPermissions()
                     }

@@ -9,35 +9,19 @@
 /* Begin PBXBuildFile section */
 		2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* CardinalKit */; };
 		2F49B7782980407C00BCB272 /* FHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7772980407C00BCB272 /* FHIR */; };
-		2F49B77A2980407C00BCB272 /* HealthKitDataSource in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7792980407C00BCB272 /* HealthKitDataSource */; };
-		2F49B77C2980407C00BCB272 /* HealthKitToFHIRAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B77B2980407C00BCB272 /* HealthKitToFHIRAdapter */; };
-		2F49B77E2980407C00BCB272 /* Scheduler in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B77D2980407C00BCB272 /* Scheduler */; };
-		2F49B7802980418400BCB272 /* Onboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B77F2980418400BCB272 /* Onboarding */; };
-		2F49B7822980419C00BCB272 /* Questionnaires in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7812980419C00BCB272 /* Questionnaires */; };
-		2F49B784298041F300BCB272 /* Contact in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B783298041F300BCB272 /* Contact */; };
 		2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */; };
 		2F4E23812989C5930013F3D9 /* XCTHealthKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F4E23802989C5930013F3D9 /* XCTHealthKit */; };
 		2F4E23832989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */; };
-		2F4E23872989DB360013F3D9 /* ContactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23862989DB360013F3D9 /* ContactsTests.swift */; };
-		2F4E23892989DB400013F3D9 /* HealthKitUploadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */; };
-		2F59B93D298C628800C5107F /* GetMoovinContacts in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93C298C628800C5107F /* GetMoovinContacts */; };
-		2F59B93F298C628800C5107F /* GetMoovinMockDataStorageProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B93E298C628800C5107F /* GetMoovinMockDataStorageProvider */; };
 		2F59B941298C628800C5107F /* GetMoovinOnboardingFlow in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B940298C628800C5107F /* GetMoovinOnboardingFlow */; };
-		2F59B943298C628800C5107F /* GetMoovinSchedule in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B942298C628800C5107F /* GetMoovinSchedule */; };
 		2F59B945298C628800C5107F /* GetMoovinSharedContext in Frameworks */ = {isa = PBXBuildFile; productRef = 2F59B944298C628800C5107F /* GetMoovinSharedContext */; };
 		2F5E32BD297E05EA003432F8 /* GetMoovinAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5E32BC297E05EA003432F8 /* GetMoovinAppDelegate.swift */; };
-		2F9056FE299E36CA003D3802 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F9056FC299E36CA003D3802 /* GoogleService-Info.plist */; };
 		2F905702299E38A4003D3802 /* XCTestExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 2F905701299E38A4003D3802 /* XCTestExtensions */; };
-		2F905704299E38B9003D3802 /* FHIRToFirestoreAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 2F905703299E38B9003D3802 /* FHIRToFirestoreAdapter */; };
-		2F905706299E38B9003D3802 /* FirebaseAccount in Frameworks */ = {isa = PBXBuildFile; productRef = 2F905705299E38B9003D3802 /* FirebaseAccount */; };
-		2F905708299E38B9003D3802 /* FirestoreDataStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F905707299E38B9003D3802 /* FirestoreDataStorage */; };
-		2F90570A299E38B9003D3802 /* FirestoreStoragePrefixUserIdAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 2F905709299E38B9003D3802 /* FirestoreStoragePrefixUserIdAdapter */; };
+		2F9A484E29AB3D410041F064 /* LocalStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9A484D29AB3D410041F064 /* LocalStorage */; };
 		2FC9759F2978E39600BA99FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9759E2978E39600BA99FE /* Localizable.strings */; };
 		2FC975A82978F11A00BA99FE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC975A72978F11A00BA99FE /* Home.swift */; };
 		653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* GetMoovin.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* GetMoovinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* GetMoovinTests.swift */; };
-		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +45,7 @@
 		2F49B77329803E8F00BCB272 /* GetMoovinModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetMoovinModules; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinAppTestingSetup.swift; sourceTree = "<group>"; };
-		2F4E23862989DB360013F3D9 /* ContactsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTests.swift; sourceTree = "<group>"; };
-		2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitUploadTests.swift; sourceTree = "<group>"; };
 		2F5E32BC297E05EA003432F8 /* GetMoovinAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinAppDelegate.swift; sourceTree = "<group>"; };
-		2F9056FC299E36CA003D3802 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FAEC07F297F583900C11C42 /* GetMoovin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GetMoovin.entitlements; sourceTree = "<group>"; };
 		2FC94CD4298B0A1D009C8209 /* GetMoovin.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetMoovin.xctestplan; sourceTree = "<group>"; };
 		2FC9759E2978E39600BA99FE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -75,7 +56,6 @@
 		653A255D28338800005D4D48 /* GetMoovinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetMoovinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A256128338800005D4D48 /* GetMoovinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinTests.swift; sourceTree = "<group>"; };
 		653A256728338800005D4D48 /* GetMoovinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetMoovinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerAndQuestionnaireTests.swift; sourceTree = "<group>"; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,23 +64,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9A484E29AB3D410041F064 /* LocalStorage in Frameworks */,
 				2F59B941298C628800C5107F /* GetMoovinOnboardingFlow in Frameworks */,
-				2F49B7822980419C00BCB272 /* Questionnaires in Frameworks */,
-				2F49B77E2980407C00BCB272 /* Scheduler in Frameworks */,
-				2F59B93F298C628800C5107F /* GetMoovinMockDataStorageProvider in Frameworks */,
-				2F49B77A2980407C00BCB272 /* HealthKitDataSource in Frameworks */,
 				2F59B945298C628800C5107F /* GetMoovinSharedContext in Frameworks */,
-				2F905708299E38B9003D3802 /* FirestoreDataStorage in Frameworks */,
-				2F905706299E38B9003D3802 /* FirebaseAccount in Frameworks */,
-				2F49B784298041F300BCB272 /* Contact in Frameworks */,
 				2F49B7782980407C00BCB272 /* FHIR in Frameworks */,
-				2F49B7802980418400BCB272 /* Onboarding in Frameworks */,
-				2F90570A299E38B9003D3802 /* FirestoreStoragePrefixUserIdAdapter in Frameworks */,
-				2F59B943298C628800C5107F /* GetMoovinSchedule in Frameworks */,
 				2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */,
-				2F59B93D298C628800C5107F /* GetMoovinContacts in Frameworks */,
-				2F905704299E38B9003D3802 /* FHIRToFirestoreAdapter in Frameworks */,
-				2F49B77C2980407C00BCB272 /* HealthKitToFHIRAdapter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +96,6 @@
 			children = (
 				2FAEC07F297F583900C11C42 /* GetMoovin.entitlements */,
 				653A258928339462005D4D48 /* Info.plist */,
-				2F9056FC299E36CA003D3802 /* GoogleService-Info.plist */,
 				653A255428338800005D4D48 /* Assets.xcassets */,
 				2FC9759E2978E39600BA99FE /* Localizable.strings */,
 			);
@@ -182,9 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */,
-				653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */,
-				2F4E23862989DB360013F3D9 /* ContactsTests.swift */,
-				2F4E23882989DB400013F3D9 /* HealthKitUploadTests.swift */,
 			);
 			path = GetMoovinUITests;
 			sourceTree = "<group>";
@@ -215,21 +179,9 @@
 			packageProductDependencies = (
 				2F49B7752980407B00BCB272 /* CardinalKit */,
 				2F49B7772980407C00BCB272 /* FHIR */,
-				2F49B7792980407C00BCB272 /* HealthKitDataSource */,
-				2F49B77B2980407C00BCB272 /* HealthKitToFHIRAdapter */,
-				2F49B77D2980407C00BCB272 /* Scheduler */,
-				2F49B77F2980418400BCB272 /* Onboarding */,
-				2F49B7812980419C00BCB272 /* Questionnaires */,
-				2F49B783298041F300BCB272 /* Contact */,
-				2F59B93C298C628800C5107F /* GetMoovinContacts */,
-				2F59B93E298C628800C5107F /* GetMoovinMockDataStorageProvider */,
 				2F59B940298C628800C5107F /* GetMoovinOnboardingFlow */,
-				2F59B942298C628800C5107F /* GetMoovinSchedule */,
 				2F59B944298C628800C5107F /* GetMoovinSharedContext */,
-				2F905703299E38B9003D3802 /* FHIRToFirestoreAdapter */,
-				2F905705299E38B9003D3802 /* FirebaseAccount */,
-				2F905707299E38B9003D3802 /* FirestoreDataStorage */,
-				2F905709299E38B9003D3802 /* FirestoreStoragePrefixUserIdAdapter */,
+				2F9A484D29AB3D410041F064 /* LocalStorage */,
 			);
 			productName = GetMoovinApplication;
 			productReference = 653A254D283387FE005D4D48 /* GetMoovin.app */;
@@ -330,7 +282,6 @@
 			files = (
 				653A255528338800005D4D48 /* Assets.xcassets in Resources */,
 				2FC9759F2978E39600BA99FE /* Localizable.strings in Resources */,
-				2F9056FE299E36CA003D3802 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F4E23872989DB360013F3D9 /* ContactsTests.swift in Sources */,
-				2F4E23892989DB400013F3D9 /* HealthKitUploadTests.swift in Sources */,
 				2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */,
-				653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,56 +710,14 @@
 			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
 			productName = FHIR;
 		};
-		2F49B7792980407C00BCB272 /* HealthKitDataSource */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = HealthKitDataSource;
-		};
-		2F49B77B2980407C00BCB272 /* HealthKitToFHIRAdapter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = HealthKitToFHIRAdapter;
-		};
-		2F49B77D2980407C00BCB272 /* Scheduler */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = Scheduler;
-		};
-		2F49B77F2980418400BCB272 /* Onboarding */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = Onboarding;
-		};
-		2F49B7812980419C00BCB272 /* Questionnaires */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = Questionnaires;
-		};
-		2F49B783298041F300BCB272 /* Contact */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = Contact;
-		};
 		2F4E23802989C5930013F3D9 /* XCTHealthKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F4E237F2989C5930013F3D9 /* XCRemoteSwiftPackageReference "XCTHealthKit" */;
 			productName = XCTHealthKit;
 		};
-		2F59B93C298C628800C5107F /* GetMoovinContacts */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GetMoovinContacts;
-		};
-		2F59B93E298C628800C5107F /* GetMoovinMockDataStorageProvider */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GetMoovinMockDataStorageProvider;
-		};
 		2F59B940298C628800C5107F /* GetMoovinOnboardingFlow */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GetMoovinOnboardingFlow;
-		};
-		2F59B942298C628800C5107F /* GetMoovinSchedule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GetMoovinSchedule;
 		};
 		2F59B944298C628800C5107F /* GetMoovinSharedContext */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -822,25 +728,10 @@
 			package = 2F905700299E38A4003D3802 /* XCRemoteSwiftPackageReference "XCTestExtensions" */;
 			productName = XCTestExtensions;
 		};
-		2F905703299E38B9003D3802 /* FHIRToFirestoreAdapter */ = {
+		2F9A484D29AB3D410041F064 /* LocalStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = FHIRToFirestoreAdapter;
-		};
-		2F905705299E38B9003D3802 /* FirebaseAccount */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = FirebaseAccount;
-		};
-		2F905707299E38B9003D3802 /* FirestoreDataStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = FirestoreDataStorage;
-		};
-		2F905709299E38B9003D3802 /* FirestoreStoragePrefixUserIdAdapter */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
-			productName = FirestoreStoragePrefixUserIdAdapter;
+			productName = LocalStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -18,10 +18,7 @@ let package = Package(
         .iOS(.v16)
     ],
     products: [
-        .library(name: "GetMoovinContacts", targets: ["GetMoovinContacts"]),
-        .library(name: "GetMoovinMockDataStorageProvider", targets: ["GetMoovinMockDataStorageProvider"]),
         .library(name: "GetMoovinOnboardingFlow", targets: ["GetMoovinOnboardingFlow"]),
-        .library(name: "GetMoovinSchedule", targets: ["GetMoovinSchedule"]),
         .library(name: "GetMoovinSharedContext", targets: ["GetMoovinSharedContext"])
     ],
     dependencies: [
@@ -29,48 +26,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "GetMoovinContacts",
-            dependencies: [
-                .target(name: "GetMoovinSharedContext"),
-                .product(name: "Contact", package: "CardinalKit")
-            ],
-            resources: [
-                .process("Resources")
-            ]
-        ),
-        .target(
-            name: "GetMoovinMockDataStorageProvider",
-            dependencies: [
-                .target(name: "GetMoovinSharedContext"),
-                .product(name: "CardinalKit", package: "CardinalKit"),
-                .product(name: "FHIR", package: "CardinalKit")
-            ],
-            resources: [
-                .process("Resources")
-            ]
-        ),
-        .target(
             name: "GetMoovinOnboardingFlow",
             dependencies: [
                 .target(name: "GetMoovinSharedContext"),
-                .product(name: "Account", package: "CardinalKit"),
-                .product(name: "FHIR", package: "CardinalKit"),
-                .product(name: "FirebaseAccount", package: "CardinalKit"),
-                .product(name: "HealthKitDataSource", package: "CardinalKit"),
-                .product(name: "Onboarding", package: "CardinalKit"),
-                .product(name: "Views", package: "CardinalKit")
+                .product(name: "Onboarding", package: "CardinalKit")
             ],
             resources: [
                 .process("Resources")
-            ]
-        ),
-        .target(
-            name: "GetMoovinSchedule",
-            dependencies: [
-                .target(name: "GetMoovinSharedContext"),
-                .product(name: "FHIR", package: "CardinalKit"),
-                .product(name: "Questionnaires", package: "CardinalKit"),
-                .product(name: "Scheduler", package: "CardinalKit")
             ]
         ),
         .target(

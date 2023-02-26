@@ -38,12 +38,7 @@ struct InterestingModules: View {
             ],
             actionText: "INTERESTING_MODULES_BUTTON".moduleLocalized,
             action: {
-                #if targetEnvironment(simulator) && (arch(i386) || arch(x86_64))
-                print("PKCanvas view-related views are currently skipped on Intel-based iOS simulators due to a metal bug on the simulator.")
-                onboardingSteps.append(.accountSetup)
-                #else
-                onboardingSteps.append(.consent)
-                #endif
+                onboardingSteps.append(.healthKitPermissions)
             }
         )
     }
@@ -55,7 +50,7 @@ struct InterestingModules: View {
 }
 
 
-struct ThingsToKnow_Previews: PreviewProvider {
+struct InterestingModules_Previews: PreviewProvider {
     @State private static var path: [OnboardingFlow.Step] = []
     
     
