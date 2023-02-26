@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27B13BC829A98A9F0039726B /* StepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B13BC729A98A9F0039726B /* StepCountView.swift */; };
+		27B13BCA29A98AF00039726B /* StepCountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B13BC929A98AF00039726B /* StepCountViewModel.swift */; };
+		27B13BCC29A991E90039726B /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B13BCB29A991E90039726B /* HealthKitManager.swift */; };
 		2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* CardinalKit */; };
 		2F49B7782980407C00BCB272 /* FHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7772980407C00BCB272 /* FHIR */; };
 		2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27B13BC729A98A9F0039726B /* StepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountView.swift; sourceTree = "<group>"; };
+		27B13BC929A98AF00039726B /* StepCountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountViewModel.swift; sourceTree = "<group>"; };
+		27B13BCB29A991E90039726B /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		2F49B77329803E8F00BCB272 /* GetMoovinModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetMoovinModules; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinAppTestingSetup.swift; sourceTree = "<group>"; };
@@ -133,6 +139,9 @@
 				2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */,
 				2FC975A72978F11A00BA99FE /* Home.swift */,
 				2FC9759D2978E30800BA99FE /* Supporting Files */,
+				27B13BC729A98A9F0039726B /* StepCountView.swift */,
+				27B13BC929A98AF00039726B /* StepCountViewModel.swift */,
+				27B13BCB29A991E90039726B /* HealthKitManager.swift */,
 			);
 			path = GetMoovin;
 			sourceTree = "<group>";
@@ -310,6 +319,9 @@
 				2F4E23832989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* GetMoovinAppDelegate.swift in Sources */,
 				653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */,
+				27B13BCA29A98AF00039726B /* StepCountViewModel.swift in Sources */,
+				27B13BCC29A991E90039726B /* HealthKitManager.swift in Sources */,
+				27B13BC829A98A9F0039726B /* StepCountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
