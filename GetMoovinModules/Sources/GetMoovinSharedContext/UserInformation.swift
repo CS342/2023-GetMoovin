@@ -1,0 +1,37 @@
+//
+// This source file is part of the CS342 2023 GetMoovin Team Application project
+//
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
+//
+
+import Foundation
+
+
+public struct UserInformation: Codable {
+    public var stepGoal: Int?
+    public var ultimateDecade: Date?
+    
+    
+    public init() {}
+}
+
+
+extension UserInformation: RawRepresentable {
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let rawValue = String(data: data, encoding: .utf8) else {
+            return ""
+        }
+        return rawValue
+    }
+    
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let result = try? JSONDecoder().decode(Self.self, from: data) else {
+            return nil
+        }
+        self = result
+    }
+}

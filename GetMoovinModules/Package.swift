@@ -19,10 +19,11 @@ let package = Package(
     ],
     products: [
         .library(name: "GetMoovinOnboardingFlow", targets: ["GetMoovinOnboardingFlow"]),
-        .library(name: "GetMoovinSharedContext", targets: ["GetMoovinSharedContext"])
+        .library(name: "GetMoovinSharedContext", targets: ["GetMoovinSharedContext"]),
+        .library(name: "GetMoovinStepCountModule", targets: ["GetMoovinStepCountModule"])
     ],
     dependencies: [
-        .package(url: "https://github.com/StanfordBDHG/CardinalKit.git", .upToNextMinor(from: "0.3.1"))
+        .package(url: "https://github.com/StanfordBDHG/CardinalKit.git", .upToNextMinor(from: "0.3.2"))
     ],
     targets: [
         .target(
@@ -38,6 +39,12 @@ let package = Package(
         .target(
             name: "GetMoovinSharedContext",
             dependencies: []
+        ),
+        .target(
+            name: "GetMoovinStepCountModule",
+            dependencies: [
+                .product(name: "CardinalKit", package: "CardinalKit")
+            ]
         )
     ]
 )

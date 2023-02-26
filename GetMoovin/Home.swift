@@ -7,13 +7,32 @@
 //
 
 import GetMoovinSharedContext
+import GetMoovinStepCountModule
 import SwiftUI
 
 
 struct HomeView: View {
+    enum Tabs: String {
+        case todaysGoal
+        case longtermGoal
+    }
+    
+    
+    @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.todaysGoal
+    
+    
     var body: some View {
-        NavigationStack {
-            StepCountView()
+        TabView(selection: $selectedTab) {
+            TodaysGoal()
+                .tag(Tabs.todaysGoal)
+                .tabItem {
+                    Label("TODAYS_GOAL_TAB_TITLE", systemImage: "figure.walk")
+                }
+            LongtermProgress()
+                .tag(Tabs.longtermGoal)
+                .tabItem {
+                    Label("LONGTERM_PROGRESS_TAB_TITLE", systemImage: "chart.line.uptrend.xyaxis")
+                }
         }
     }
 }
@@ -23,6 +42,7 @@ struct HomeView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(MockStepCountDataSource(todaysSteps: 1042) as StepCountDataSource)
     }
 }
 #endif

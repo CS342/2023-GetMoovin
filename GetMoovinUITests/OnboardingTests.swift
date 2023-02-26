@@ -28,7 +28,11 @@ class OnboardingTests: XCTestCase {
         
         try app.navigateOnboardingFlow()
         
-        XCTAssertTrue(app.staticTexts["GetMoovin!"].waitForExistence(timeout: 5))
+        let tabBar = app.tabBars.firstMatch
+        XCTAssertTrue(tabBar.buttons["Today's Goal"].waitForExistence(timeout: 2))
+        tabBar.buttons["Today's Goal"].tap()
+        XCTAssertTrue(tabBar.buttons["Progress"].waitForExistence(timeout: 2))
+        tabBar.buttons["Progress"].tap()
     }
 }
 
@@ -42,7 +46,8 @@ extension XCUIApplication {
     
     func navigateOnboardingFlow() throws {
         try navigateOnboardingFlowWelcome()
-        try navigateOnboardingFlowInterestingModules()
+        try navigateOnboardingFlowInformation()
+        try navigateOnboardingFlowGoalSetting()
         try navigateOnboardingFlowHealthKitAccess()
     }
     
@@ -53,14 +58,12 @@ extension XCUIApplication {
         buttons["Learn More"].tap()
     }
     
-    private func navigateOnboardingFlowInterestingModules() throws {
-        XCTAssertTrue(staticTexts["Interesting Modules"].waitForExistence(timeout: 2))
-        
-        for _ in 1..<4 {
-            XCTAssertTrue(buttons["Next"].waitForExistence(timeout: 2))
-            buttons["Next"].tap()
-        }
-        
+    private func navigateOnboardingFlowInformation() throws {
+        XCTAssertTrue(buttons["Next"].waitForExistence(timeout: 2))
+        buttons["Next"].tap()
+    }
+    
+    private func navigateOnboardingFlowGoalSetting() throws {
         XCTAssertTrue(buttons["Next"].waitForExistence(timeout: 2))
         buttons["Next"].tap()
     }
