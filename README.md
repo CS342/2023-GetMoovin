@@ -43,6 +43,7 @@ The application includes the following feature flags that can be configured in t
 - ``--skipOnboarding``: Skips the onboarding flow to enable easier development of features in the application and to allow UI tests to skip the onboarding flow.
 - ``--showOnboarding``: Always show the onboarding when the application is launched. Makes it easy to modify and test the onboarding flow without the need to manually remove the application or reset the simulator.
 
+
 ## Continous Delivery Workflows
 
 The application includes continuous integration (CI) and continuous delivery (CD) setup.
