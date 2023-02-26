@@ -13,11 +13,8 @@ import SwiftUI
 /// Displays an multi-step onboarding flow for the CS342 2023 GetMoovin Team Application.
 public struct OnboardingFlow: View {
     enum Step: String, Codable {
-        case interestingModules
-        case consent
-        case accountSetup
-        case login
-        case signUp
+        case information
+        case goalSetting
         case healthKitPermissions
     }
     
@@ -30,16 +27,10 @@ public struct OnboardingFlow: View {
             Welcome(onboardingSteps: $onboardingSteps)
                 .navigationDestination(for: Step.self) { onboardingStep in
                     switch onboardingStep {
-                    case .interestingModules:
-                        InterestingModules(onboardingSteps: $onboardingSteps)
-                    case .consent:
-                        Consent(onboardingSteps: $onboardingSteps)
-                    case .accountSetup:
-                        AccountSetup(onboardingSteps: $onboardingSteps)
-                    case .login:
-                        GetMoovinLogin()
-                    case .signUp:
-                        GetMoovinSignUp()
+                    case .information:
+                        Information(onboardingSteps: $onboardingSteps)
+                    case .goalSetting:
+                        GoalSetting(onboardingSteps: $onboardingSteps)
                     case .healthKitPermissions:
                         HealthKitPermissions()
                     }

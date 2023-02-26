@@ -7,13 +7,15 @@
 //
 
 
-// MARK: - Contacts
-"CONTACTS_TAB_TITLE" = "Contacts";
+// MARK: - Today's Goal
+"TODAYS_GOAL_TAB_TITLE" = "Today's Goal";
+"TODAYS_GOAL_TITLE" = "Today's Goal";
 
+// Step Count View
+"TODAYS_GOAL_TITLE %lld" = "Today's step count: %lld";
+"TODAYS_GOAL_TITLE %lld" = "Today's goal: %lld";
 
-// MARK: - Mock Upload Data Storage Provider
-"MOCK_UPLOAD_TAB_TITLE" = "Photo Upload";
-
-
-// MARK: - Schedule
-"SCHEDULE_TAB_TITLE" = "Goals";
+// MARK: - Longterm Progress
+"LONGTERM_PROGRESS_TAB_TITLE" = "Progress";
+"LONGTERM_PROGRESS_TITLE" = "Longterm Progress";
+"LONGTERM_PROGRESS_DESCRIPTION" = "Display your longterm progress here ...";
