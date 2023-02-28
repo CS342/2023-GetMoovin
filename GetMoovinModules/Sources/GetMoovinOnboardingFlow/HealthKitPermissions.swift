@@ -6,15 +6,13 @@
 // SPDX-License-Identifier: MIT
 //
 
-import FHIR
 import GetMoovinSharedContext
-import HealthKitDataSource
+import HealthKit
 import Onboarding
 import SwiftUI
 
 
 struct HealthKitPermissions: View {
-    @EnvironmentObject var healthKitDataSource: HealthKit<FHIR>
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
@@ -39,16 +37,27 @@ struct HealthKitPermissions: View {
                 OnboardingActionsView(
                     "HEALTHKIT_PERMISSIONS_BUTTON".moduleLocalized,
                     action: {
-                        do {
-                            try await healthKitDataSource.askForAuthorization()
-                        } catch {
-                            print("Could not request HealthKit permissions.")
-                        }
+                        await askForHealthKitPermissions()
                         completedOnboardingFlow = true
                     }
                 )
             }
         )
+    }
+    
+    
+    private func askForHealthKitPermissions() async {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            return
+        }
+        
+        let healthStore = HKHealthStore()
+        
+        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
+            return
+        }
+        
+        try? await healthStore.requestAuthorization(toShare: [], read: [stepType])
     }
 }
 

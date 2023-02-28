@@ -6,10 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
-import GetMoovinContacts
-import GetMoovinMockDataStorageProvider
-import GetMoovinSchedule
 import GetMoovinSharedContext
+import GetMoovinStepCountModule
 import SwiftUI
 
 
@@ -19,28 +17,25 @@ struct HomeView: View {
         case contact
         case mockUpload
         case photoUpload
+        case todaysGoal
+        case longtermGoal
     }
     
     
-    @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.schedule
+    @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.todaysGoal
     
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            ScheduleView()
-                .tag(Tabs.schedule)
+            TodaysGoal()
+                .tag(Tabs.todaysGoal)
                 .tabItem {
-                    Label("SCHEDULE_TAB_TITLE", systemImage: "list.clipboard")
+                    Label("TODAYS_GOAL_TAB_TITLE", systemImage: "figure.walk")
                 }
-            Contacts()
-                .tag(Tabs.contact)
+            LongtermProgress()
+                .tag(Tabs.longtermGoal)
                 .tabItem {
-                    Label("CONTACTS_TAB_TITLE", systemImage: "person.fill")
-                }
-            MockUploadList()
-                .tag(Tabs.mockUpload)
-                .tabItem {
-                    Label("MOCK_UPLOAD_TAB_TITLE", systemImage: "server.rack")
+                    Label("LONGTERM_PROGRESS_TAB_TITLE", systemImage: "chart.line.uptrend.xyaxis")
                 }
             PhotoUpload()
                 .tag(Tabs.photoUpload)
@@ -56,8 +51,7 @@ struct HomeView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(GetMoovinScheduler())
-            .environmentObject(MockDataStorageProvider())
+            .environmentObject(MockStepCountDataSource(todaysSteps: 1042) as StepCountDataSource)
     }
 }
 #endif
