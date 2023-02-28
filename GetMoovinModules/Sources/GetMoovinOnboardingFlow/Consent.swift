@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import GetMoovinSharedContext
 import Onboarding
 import SwiftUI
 

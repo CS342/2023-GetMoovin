@@ -30,6 +30,32 @@ extension GetMoovinScheduler {
                         end: .numberOfEvents(356)
                     ),
                     context: GetMoovinTaskContext.questionnaire(Bundle.module.questionnaire(withName: "SocialSupportQuestionnaire"))
+                ),
+                Task(
+                    title: String(localized: "Take your daily photo!", bundle: .module),
+                    description: String(
+                        localized: "Congrats on completing your daily workout!",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(1)
+                    ),
+                    context: GetMoovinTaskContext.photoUpload(PhotoUploadContext.base)
+                ),
+                Task(
+                    title: String(localized: "Unlock your reward", bundle: .module),
+                    description: String(
+                        localized: "After completing your workout, you unlock your daily surprise picture!",
+                        bundle: .module
+                    ),
+                    schedule: Schedule(
+                        start: Calendar.current.startOfDay(for: Date()),
+                        dateComponents: .init(hour: 8, minute: 0),
+                        end: .numberOfEvents(1)
+                    ),
+                    context: GetMoovinTaskContext.photoUpload(PhotoUploadContext.day0)
                 )
             ]
         )

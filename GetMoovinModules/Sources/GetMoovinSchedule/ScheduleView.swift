@@ -64,6 +64,10 @@ public struct ScheduleView: View {
                         await eventContext.event.complete(true)
                     }
                 }
+            case let .photoUpload(photoUploadContext):
+                PhotoUploadView(photoUploadContext: photoUploadContext)
+            case let .photoUnlock(photoUploadContext):
+                PhotoUploadView(photoUploadContext: photoUploadContext)
             }
         }
         return destination

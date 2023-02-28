@@ -42,11 +42,6 @@ struct HomeView: View {
                 .tabItem {
                     Label("MOCK_UPLOAD_TAB_TITLE", systemImage: "server.rack")
                 }
-            PhotoUpload()
-                .tag(Tabs.photoUpload)
-                .tabItem {
-                    Label("PHOTO_UPLOAD_TAB_TITLE", systemImage: "server.rack")
-                }
         }
     }
 }
