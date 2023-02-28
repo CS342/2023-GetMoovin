@@ -9,30 +9,30 @@
 // MARK: - Onboarding
 
 // MARK: Welcome
-"WELCOME_TITLE" = "CardinalKit\nGetMoovin Application";
-"WELCOME_SUBTITLE" = "This application demonstrates several CardinalKit features & modules.";
+"WELCOME_TITLE" = "GetMoovin";
+"WELCOME_SUBTITLE" = "Walk, Capture Connect.";
 
-"WELCOME_AREA1_TITLE" = "The CardinalKit Framework";
-"WELCOME_AREA1_DESCRIPTION" = "The CardinalKit Framework builds the foundation of this GetMoovin application.";
+"WELCOME_AREA1_TITLE" = "Count Steps";
+"WELCOME_AREA1_DESCRIPTION" = "GetMoovin Counts your Steps, so you can meet your goals.";
 
-"WELCOME_AREA2_TITLE" = "Swift Package Manager";
-"WELCOME_AREA2_DESCRIPTION" = "CardinalKit uses the Swift Package Manager to import it as a dependency.";
+"WELCOME_AREA2_TITLE" = "See Progress";
+"WELCOME_AREA2_DESCRIPTION" = "GetMoovin visualizes your data.";
 
-"WELCOME_AREA3_TITLE" = "CardinalKit Modules";
-"WELCOME_AREA3_DESCRIPTION" = "CardinalKit offers several modules including HealthKit integration, questionnaires, and more ...";
+"WELCOME_AREA3_TITLE" = "Connect";
+"WELCOME_AREA3_DESCRIPTION" = "Show your step count to others";
 
-"WELCOME_BUTTON" = "Learn More";
+"WELCOME_BUTTON" = "Start";
 
 
-// MARK: Information
-"INFORMATION_TITLE" = "Information";
-"INFORMATION_DESCRIPTION" = "Some information ...";
+// MARK: Ultimate Decade
+"INFORMATION_TITLE" = "Ultimate Decade";
+"INFORMATION_DESCRIPTION" = "What is you ultimate decade?";
 "INFORMATION_ACTION" = "Next";
 
 
 // MARK: GoalSetting
 "GOAL_SETTING_TITLE" = "Goal Setting";
-"GOAL_SETTING_DESCRIPTION" = "Your goal setting view ...";
+"GOAL_SETTING_DESCRIPTION" = "What is your goal step count a day?";
 "GOAL_SETTING_ACTION" = "Next";
 
 
