@@ -44,9 +44,10 @@ struct MultipleChoiceQuestion_Previews: PreviewProvider {
     static let choices = ["Choice 1", "Choice 2", "Choice 3"]
     
     static var previews: some View {
-        MultipleChoiceQuestion(questionText: "What is your ultimate decade?",
-                               choices: choices,
-                               selectedAnswer: $selectedAnswer)
+        MultipleChoiceQuestion(
+            questionText: "What is your ultimate decade?",
+            choices: choices,
+            selectedAnswer: $selectedAnswer
+        )
     }
 }
-

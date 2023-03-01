@@ -16,11 +16,16 @@ struct Welcome: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [
-                Color(red: 255/255, green: 255/255, blue: 255/255),
-                Color(red: 255/255, green: 229/255, blue: 204/255)
-            ]), startPoint: .topLeading, endPoint: .bottomTrailing)
-            
+            LinearGradient(
+            gradient: Gradient(
+            colors: [
+            Color(red: 255 / 255, green: 255 / 255, blue: 255 / 255),
+            Color(red: 255 / 255, green: 229 / 255, blue: 204 / 255)
+            ]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+            )
             OnboardingView(
                 title: "WELCOME_TITLE".moduleLocalized,
                 subtitle: "WELCOME_SUBTITLE".moduleLocalized,

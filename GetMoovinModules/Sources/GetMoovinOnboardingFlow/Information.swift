@@ -15,7 +15,7 @@ struct Information: View {
     @State private var selectedAnswer: String = ""
     
     let questionText = "In other words, what decade do you hope to live?"
-    let answerChoices = ["60-69","70-79","80-89","90-99"]
+    let answerChoices = ["60-69", "70-79", "80-89", "90-99"]
     
     var body: some View {
         VStack {
@@ -26,9 +26,11 @@ struct Information: View {
                     .frame(maxWidth: .infinity) // Expand to full width
                     .bold()
             }
-            MultipleChoiceQuestion(questionText: questionText,
-                                   choices: answerChoices,
-                                   selectedAnswer: $selectedAnswer)
+            MultipleChoiceQuestion(
+                questionText: questionText,
+                choices: answerChoices,
+                selectedAnswer: $selectedAnswer
+            )
                 .font(.title) // Increase font size for better readability
                 .padding() // Add padding for better touch target
             
@@ -57,4 +59,3 @@ struct Information_Previews: PreviewProvider {
         Information(onboardingSteps: $path)
     }
 }
-

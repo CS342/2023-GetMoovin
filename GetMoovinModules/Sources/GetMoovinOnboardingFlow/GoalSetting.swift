@@ -16,7 +16,7 @@ struct GoalSetting: View {
     @State private var selectedAnswer: String = ""
     
     let questionText = "To get an idea of your daily step count, simply check your phone."
-    let answerChoices = ["1,000 - 4,999","5,000 - 7,499","7,500 - 9,999", "10,000 <"]
+    let answerChoices = ["1,000 - 4,999", "5,000 - 7,499", "7,500 - 9,999", "10,000 <"]
     
     var body: some View {
         VStack {
@@ -28,9 +28,11 @@ struct GoalSetting: View {
                     .bold()
             }
         
-            MultipleChoiceQuestion(questionText: questionText,
-                                   choices: answerChoices,
-                                   selectedAnswer: $selectedAnswer)
+            MultipleChoiceQuestion(
+                questionText: questionText,
+                choices: answerChoices,
+                selectedAnswer: $selectedAnswer
+            )
                 .font(.title) // Increase font size for better readability
                 .padding() // Add padding for better touch target
             
@@ -44,7 +46,7 @@ struct GoalSetting: View {
         }
         .padding(.horizontal, 24)
         .navigationTitle("GOAL_SETTING_TITLE".moduleLocalized)
-        .navigationBarTitleDisplayMode(.inline) 
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
