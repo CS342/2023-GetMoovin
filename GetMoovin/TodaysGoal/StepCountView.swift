@@ -22,10 +22,10 @@ struct StepCountView: View {
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
-    @State var todaysSteps: Int?
+    
     var body: some View {
         let data: [StepsInfo] = [
-            .init(type: "Steps", count: todaysSteps ?? 7000, color: "Blue"),
+            .init(type: "Steps", count: stepCountDataSource.todaysSteps ?? 7000, color: "Blue"),
             .init(type: "Steps", count: 10000, color: "Grey")
         ]
         Chart {
@@ -39,7 +39,7 @@ struct StepCountView: View {
         }
         ScrollView {
             VStack {
-                if let todaysSteps {
+                if let todaysSteps = stepCountDataSource.todaysSteps {
                     Text("Today's step count: \(todaysSteps)")
                 } else {
                     ProgressView()
@@ -48,19 +48,6 @@ struct StepCountView: View {
                     Text("The goal is: \(stepGoal)")
                 }
             }
-        }
-            .refreshable {
-                loadStepCount()
-            }
-            .onAppear {
-                loadStepCount()
-            }
-    }
-    
-    
-    private func loadStepCount() {
-        Task {
-            todaysSteps = await stepCountDataSource.todaysSteps
         }
     }
 }
