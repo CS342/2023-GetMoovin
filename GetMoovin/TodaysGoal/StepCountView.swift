@@ -6,19 +6,37 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Charts
 import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
+struct StepsInfo: Identifiable {
+    var id = UUID()
+    var type: String
+    var count: Int
+    var color: String
+}
 
 struct StepCountView: View {
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
     @State var todaysSteps: Int?
-    
-    
     var body: some View {
+        let data: [StepsInfo] = [
+            .init(type: "Steps", count: todaysSteps ?? 7000, color: "Blue"),
+            .init(type: "Steps", count: 10000, color: "Grey")
+        ]
+        Chart {
+            ForEach(data) { shape in
+                   BarMark(
+                       x: .value("Shape Type", shape.type),
+                       y: .value("Total Count", shape.count)
+                   )
+                   .foregroundStyle(by: .value("Shape Color", shape.color))
+            }
+        }
         ScrollView {
             VStack {
                 if let todaysSteps {
