@@ -17,8 +17,8 @@ struct Welcome: View {
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [
-                Color(red: 212/255, green: 237/255, blue: 218/255),
-                Color(red: 167/255, green: 209/255, blue: 187/255)
+                Color(red: 255/255, green: 255/255, blue: 255/255),
+                Color(red: 255/255, green: 229/255, blue: 204/255)
             ]), startPoint: .topLeading, endPoint: .bottomTrailing)
             
             OnboardingView(

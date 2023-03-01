@@ -14,7 +14,7 @@ struct Information: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
     @State private var selectedAnswer: String = ""
     
-    let questionText = "In other words, what decade do you think you will die."
+    let questionText = "In other words, what decade do you hope to live?"
     let answerChoices = ["60-69","70-79","80-89","90-99"]
     
     var body: some View {
@@ -42,7 +42,7 @@ struct Information: View {
         }
         .padding(.horizontal, 24)
         .navigationTitle("INFORMATION_TITLE".moduleLocalized)
-        .navigationBarTitleDisplayMode(.inline) // Show title in navigation bar
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {

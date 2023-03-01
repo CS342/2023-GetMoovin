@@ -10,16 +10,16 @@
 
 // MARK: Welcome
 "WELCOME_TITLE" = "GetMoovin";
-"WELCOME_SUBTITLE" = "Walk, Capture Connect.";
+"WELCOME_SUBTITLE" = "Walk, Capture, Connect";
 
 "WELCOME_AREA1_TITLE" = "Count Steps";
-"WELCOME_AREA1_DESCRIPTION" = "GetMoovin Counts your Steps, so you can meet your goals.";
+"WELCOME_AREA1_DESCRIPTION" = "Every step counts, track them all and make progress towards a healthier you.";
 
-"WELCOME_AREA2_TITLE" = "See Progress";
-"WELCOME_AREA2_DESCRIPTION" = "GetMoovin visualizes your data.";
+"WELCOME_AREA2_TITLE" = "Visualize Your Data";
+"WELCOME_AREA2_DESCRIPTION" = "See your health in a new light, with data-driven insights for a better life.";
 
 "WELCOME_AREA3_TITLE" = "Connect";
-"WELCOME_AREA3_DESCRIPTION" = "Show your step count to others";
+"WELCOME_AREA3_DESCRIPTION" = "Inspire and be inspired, share your journey to health and wellness with those around you.";
 
 "WELCOME_BUTTON" = "Start";
 
@@ -39,5 +39,5 @@
 // MARK: HealthKit
 "HEALTHKIT_PERMISSIONS_TITLE" = "HealthKit Access";
 "HEALTHKIT_PERMISSIONS_SUBTITLE" = "CardinalKit can access data from HealthKit using the HealthKitDataSource module.";
-"HEALTHKIT_PERMISSIONS_DESCRIPTION" = "This onboarding step allows you to customize the onboarding flow to explain how the application uses the HealhtKit data and allows a user to cusomize the selection.";
+"HEALTHKIT_PERMISSIONS_DESCRIPTION" = "In order to track and visualize your goals, please allow permisions to HealthKit Access.";
 "HEALTHKIT_PERMISSIONS_BUTTON" = "Grant Access";

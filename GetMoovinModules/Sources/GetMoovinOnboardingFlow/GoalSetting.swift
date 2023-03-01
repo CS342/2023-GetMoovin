@@ -15,8 +15,8 @@ struct GoalSetting: View {
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @State private var selectedAnswer: String = ""
     
-    let questionText = "If you want an idea of your current step count, check your phone."
-    let answerChoices = ["500","1000","1500","2000"]
+    let questionText = "To get an idea of your daily step count, simply check your phone."
+    let answerChoices = ["1,000 - 4,999","5,000 - 7,499","7,500 - 9,999", "10,000 <"]
     
     var body: some View {
         VStack {
@@ -44,7 +44,7 @@ struct GoalSetting: View {
         }
         .padding(.horizontal, 24)
         .navigationTitle("GOAL_SETTING_TITLE".moduleLocalized)
-        .navigationBarTitleDisplayMode(.inline) // Show title in navigation bar
+        .navigationBarTitleDisplayMode(.inline) 
     }
     
     init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
