@@ -41,6 +41,8 @@ struct HealthKitPermissions: View {
                         completedOnboardingFlow = true
                     }
                 )
+                .font(.title) // Increase font size for better readability
+                .padding() // Add padding for better touch target
             }
         )
     }
