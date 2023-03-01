@@ -1,8 +1,9 @@
 //
-//  QuestionModels.swift
-//  OnboardingFlow
+// This source file is part of the CS342 2023 GetMoovin Team Application project
 //
-//  Created by Natasha Kacharia on 2/26/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import SwiftUI
