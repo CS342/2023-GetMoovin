@@ -39,7 +39,7 @@ class OnboardingTests: XCTestCase {
 
 extension XCUIApplication {
     func conductOnboardingIfNeeded() throws {
-        if self.staticTexts["CardinalKit\nGetMoovin Application"].waitForExistence(timeout: 5) {
+        if self.staticTexts["GetMoovin"].waitForExistence(timeout: 5) {
             try navigateOnboardingFlow()
         }
     }
@@ -52,10 +52,10 @@ extension XCUIApplication {
     }
     
     private func navigateOnboardingFlowWelcome() throws {
-        XCTAssertTrue(staticTexts["CardinalKit\nGetMoovin Application"].waitForExistence(timeout: 2))
+        XCTAssertTrue(staticTexts["GetMoovin"].waitForExistence(timeout: 2))
         
-        XCTAssertTrue(buttons["Learn More"].waitForExistence(timeout: 2))
-        buttons["Learn More"].tap()
+        XCTAssertTrue(buttons["Start"].waitForExistence(timeout: 2))
+        buttons["Start"].tap()
     }
     
     private func navigateOnboardingFlowInformation() throws {
