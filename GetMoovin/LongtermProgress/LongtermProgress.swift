@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Charts
 import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
@@ -15,11 +16,11 @@ struct LongtermProgress: View {
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
-    
     var body: some View {
         NavigationStack {
-            Text("LONGTERM_PROGRESS_DESCRIPTION")
+            LongTermProgressChartView()
                 .navigationTitle("LONGTERM_PROGRESS_TITLE")
+                .padding()
         }
     }
 }

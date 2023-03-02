@@ -19,11 +19,19 @@ struct StepsInfo: Identifiable {
 }
 
 struct StepCountView: View {
+    @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
-    
+    @State var todaysSteps: Int?
+        
     var body: some View {
+            VStack {
+                if todaysSteps != nil {
+                    DailyProgressCircle(todaysSteps: $todaysSteps)
+
+    
+    /*var body: some View {
         let data: [StepsInfo] = [
             .init(type: "Steps", count: stepCountDataSource.todaysSteps ?? 7000, color: "Blue"),
             .init(type: "Steps", count: 10000, color: "Grey")
@@ -40,14 +48,33 @@ struct StepCountView: View {
         ScrollView {
             VStack {
                 if let todaysSteps = stepCountDataSource.todaysSteps {
-                    Text("Today's step count: \(todaysSteps)")
+                    Text("Today's step count: \(todaysSteps)")*/
+                    
                 } else {
                     ProgressView()
+                        .padding()
                 }
                 if let stepGoal = userInformation.stepGoal {
                     Text("The goal is: \(stepGoal)")
                 }
             }
+        
+        .refreshable {
+            loadStepCount()
+        }
+        .onAppear {
+            loadStepCount()
+        }
+        .onChange(of: scenePhase) { _ in
+            loadStepCount()
+        }
+
+    }
+    
+    
+    private func loadStepCount() {
+        Task {
+            todaysSteps = await stepCountDataSource.todaysSteps
         }
     }
 }
