@@ -12,31 +12,34 @@ import SwiftUI
 
 
 struct StepCountView: View {
+    @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
     @State var todaysSteps: Int?
-    
-    
+        
     var body: some View {
-        ScrollView {
             VStack {
-                if let todaysSteps {
-                    Text("Today's step count: \(todaysSteps)")
+                if todaysSteps != nil {
+                    DailyProgressCircle(todaysSteps: $todaysSteps)
                 } else {
                     ProgressView()
+                        .padding()
                 }
                 if let stepGoal = userInformation.stepGoal {
                     Text("The goal is: \(stepGoal)")
                 }
             }
+        
+        .refreshable {
+            loadStepCount()
         }
-            .refreshable {
-                loadStepCount()
-            }
-            .onAppear {
-                loadStepCount()
-            }
+        .onAppear {
+            loadStepCount()
+        }
+        .onChange(of: scenePhase) { _ in
+            loadStepCount()
+        }
     }
     
     
