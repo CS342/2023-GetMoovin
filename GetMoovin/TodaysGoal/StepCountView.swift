@@ -49,7 +49,6 @@ struct StepCountView: View {
             VStack {
                 if let todaysSteps = stepCountDataSource.todaysSteps {
                     Text("Today's step count: \(todaysSteps)")*/
-                    
                 } else {
                     ProgressView()
                         .padding()
@@ -68,7 +67,6 @@ struct StepCountView: View {
         .onChange(of: scenePhase) { _ in
             loadStepCount()
         }
-
     }
     
     
