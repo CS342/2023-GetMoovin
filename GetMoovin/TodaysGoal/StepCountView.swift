@@ -6,10 +6,17 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Charts
 import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
+struct StepsInfo: Identifiable {
+    var id = UUID()
+    var type: String
+    var count: Int
+    var color: String
+}
 
 struct StepCountView: View {
     @Environment(\.scenePhase) var scenePhase
@@ -22,6 +29,27 @@ struct StepCountView: View {
             VStack {
                 if todaysSteps != nil {
                     DailyProgressCircle(todaysSteps: $todaysSteps)
+
+    
+    /*var body: some View {
+        let data: [StepsInfo] = [
+            .init(type: "Steps", count: stepCountDataSource.todaysSteps ?? 7000, color: "Blue"),
+            .init(type: "Steps", count: 10000, color: "Grey")
+        ]
+        Chart {
+            ForEach(data) { shape in
+                   BarMark(
+                       x: .value("Shape Type", shape.type),
+                       y: .value("Total Count", shape.count)
+                   )
+                   .foregroundStyle(by: .value("Shape Color", shape.color))
+            }
+        }
+        ScrollView {
+            VStack {
+                if let todaysSteps = stepCountDataSource.todaysSteps {
+                    Text("Today's step count: \(todaysSteps)")*/
+                    
                 } else {
                     ProgressView()
                         .padding()
@@ -40,6 +68,7 @@ struct StepCountView: View {
         .onChange(of: scenePhase) { _ in
             loadStepCount()
         }
+
     }
     
     
