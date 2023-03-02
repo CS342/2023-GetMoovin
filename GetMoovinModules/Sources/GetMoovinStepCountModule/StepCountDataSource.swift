@@ -16,15 +16,32 @@ public class StepCountDataSource: ObservableObject {
     
     
     /// <#Description#>
-    public var todaysSteps: Int? {
-        get async {
-            await steps(forDate: .now)
-        }
-    }
+    @Published
+    public var todaysSteps: Int?
     
 
     /// <#Description#>
-    public init() { }
+    public init() {
+        Task { @MainActor in
+            self.todaysSteps = await steps(forDate: .now)
+        }
+        Task { @MainActor in
+            guard ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" && HKHealthStore.isHealthDataAvailable() else {
+                return
+            }
+            
+            let stepType = HKQuantityType(.stepCount)
+            
+            let anchorDescriptor = HKAnchoredObjectQueryDescriptor(
+                predicates: [.quantitySample(type: stepType)],
+                anchor: nil
+            )
+
+            for try await _ in anchorDescriptor.results(for: healthStore) {
+                self.todaysSteps = await steps(forDate: .now)
+            }
+        }
+    }
     
     
     /// <#Description#>
@@ -49,7 +66,7 @@ public class StepCountDataSource: ObservableObject {
         guard let steps = try? await sumOfStepsQuery.result(for: healthStore)?
             .sumQuantity()?
             .doubleValue(for: HKUnit.count()) else {
-            return nil
+            return 0
         }
         
         return Int(steps)
