@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27B13BC829A98A9F0039726B /* StepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B13BC729A98A9F0039726B /* StepCountView.swift */; };
+		2F23EBD929B01ABB00EAF830 /* ImageSource in Frameworks */ = {isa = PBXBuildFile; productRef = 2F23EBD829B01ABB00EAF830 /* ImageSource */; };
 		2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* CardinalKit */; };
 		2F49B7782980407C00BCB272 /* FHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7772980407C00BCB272 /* FHIR */; };
 		2F4E237E2989A2FE0013F3D9 /* OnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */; };
@@ -26,7 +27,6 @@
 		653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* GetMoovin.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* GetMoovinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* GetMoovinTests.swift */; };
-		653A256C28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256B28338800005D4D48 /* SchedulerAndQuestionnaireTests.swift */; };
 		E1DE30F429A6A13500686FCE /* PhotoUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE30F329A6A13500686FCE /* PhotoUpload.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,6 @@
 
 /* Begin PBXFileReference section */
 		27B13BC729A98A9F0039726B /* StepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountView.swift; sourceTree = "<group>"; };
-		2F49B77329803E8F00BCB272 /* GetMoovinModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetMoovinModules; sourceTree = "<group>"; };
 		2F4E237D2989A2FE0013F3D9 /* OnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTests.swift; sourceTree = "<group>"; };
 		2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinAppTestingSetup.swift; sourceTree = "<group>"; };
 		2F5E32BC297E05EA003432F8 /* GetMoovinAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinAppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 			files = (
 				2F9A484E29AB3D410041F064 /* LocalStorage in Frameworks */,
 				2F9A485929AB4D790041F064 /* GetMoovinStepCountModule in Frameworks */,
+				2F23EBD929B01ABB00EAF830 /* ImageSource in Frameworks */,
 				2F59B941298C628800C5107F /* GetMoovinOnboardingFlow in Frameworks */,
 				2F59B945298C628800C5107F /* GetMoovinSharedContext in Frameworks */,
 				2F49B7782980407C00BCB272 /* FHIR in Frameworks */,
@@ -103,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F23EBDA29B01AC200EAF830 /* PhotoUpload */ = {
+			isa = PBXGroup;
+			children = (
+				E1DE30F329A6A13500686FCE /* PhotoUpload.swift */,
+			);
+			path = PhotoUpload;
+			sourceTree = "<group>";
+		};
 		2F9A485C29AB572B0041F064 /* TodaysGoal */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,13 +165,13 @@
 		653A254F283387FE005D4D48 /* GetMoovin */ = {
 			isa = PBXGroup;
 			children = (
+				2F23EBDA29B01AC200EAF830 /* PhotoUpload */,
 				2F9A485D29AB57370041F064 /* LongtermProgress */,
 				2F9A485C29AB572B0041F064 /* TodaysGoal */,
 				653A2550283387FE005D4D48 /* GetMoovin.swift */,
 				2F5E32BC297E05EA003432F8 /* GetMoovinAppDelegate.swift */,
 				2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */,
 				2FC975A72978F11A00BA99FE /* Home.swift */,
-				E1DE30F329A6A13500686FCE /* PhotoUpload.swift */,
 				2FC9759D2978E30800BA99FE /* Supporting Files */,
 			);
 			path = GetMoovin;
@@ -216,6 +224,7 @@
 				2F59B944298C628800C5107F /* GetMoovinSharedContext */,
 				2F9A484D29AB3D410041F064 /* LocalStorage */,
 				2F9A485829AB4D790041F064 /* GetMoovinStepCountModule */,
+				2F23EBD829B01ABB00EAF830 /* ImageSource */,
 			);
 			productName = GetMoovinApplication;
 			productReference = 653A254D283387FE005D4D48 /* GetMoovin.app */;
@@ -297,6 +306,7 @@
 				2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */,
 				2F4E237F2989C5930013F3D9 /* XCRemoteSwiftPackageReference "XCTHealthKit" */,
 				2F905700299E38A4003D3802 /* XCRemoteSwiftPackageReference "XCTestExtensions" */,
+				2F23EBD729B01ABB00EAF830 /* XCRemoteSwiftPackageReference "ImageSource" */,
 			);
 			productRefGroup = 653A254E283387FE005D4D48 /* Products */;
 			projectDirPath = "";
@@ -533,7 +543,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GetMoovin/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = GetMoovin;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This message should never appear. Please adjust this when you start using camera information. We have to put this in here as ResearchKit has the possibility to use it and not putting it here returns an error on AppStore Connect.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GetMoovin needs access to the camer to allow you to take and share a picture after you hit your daily goal.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The CS342 2023 GetMoovin Team Application uses the step count to demonstrate CardinalKit's integration with HealthKit.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The CS342 2023 GetMoovin Team Application uses the step count to demonstrate CardinalKit's integration with HealthKit.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This message should never appear. Please adjust this when you start using location information. We have to put this in here as ResearchKit has the possibility to use it and not putting it here returns an error on AppStore Connect.";
@@ -580,7 +590,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GetMoovin/Supporting Files/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = GetMoovin;
-				INFOPLIST_KEY_NSCameraUsageDescription = "This message should never appear. Please adjust this when you start using camera information. We have to put this in here as ResearchKit has the possibility to use it and not putting it here returns an error on AppStore Connect.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "GetMoovin needs access to the camer to allow you to take and share a picture after you hit your daily goal.";
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "The CS342 2023 GetMoovin Team Application uses the step count to demonstrate CardinalKit's integration with HealthKit.";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "The CS342 2023 GetMoovin Team Application uses the step count to demonstrate CardinalKit's integration with HealthKit.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This message should never appear. Please adjust this when you start using location information. We have to put this in here as ResearchKit has the possibility to use it and not putting it here returns an error on AppStore Connect.";
@@ -732,6 +742,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2F23EBD729B01ABB00EAF830 /* XCRemoteSwiftPackageReference "ImageSource" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/StanfordBDHG/ImageSource.git";
+			requirement = {
+				kind = revision;
+				revision = 9f942f21a485f4d552cfcefffae2e4077c0e9635;
+			};
+		};
 		2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/StanfordBDHG/CardinalKit";
@@ -759,6 +777,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2F23EBD829B01ABB00EAF830 /* ImageSource */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F23EBD729B01ABB00EAF830 /* XCRemoteSwiftPackageReference "ImageSource" */;
+			productName = ImageSource;
+		};
 		2F49B7752980407B00BCB272 /* CardinalKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */;
