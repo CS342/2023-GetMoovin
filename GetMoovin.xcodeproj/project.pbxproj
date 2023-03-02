@@ -27,6 +27,10 @@
 		653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* GetMoovin.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* GetMoovinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* GetMoovinTests.swift */; };
+		F70828F729ADA5FE00495605 /* DailyProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */; };
+		F70828F929AF13FC00495605 /* LongTermProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */; };
+		F70828FB29AF178400495605 /* NewLongTermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828FA29AF178400495605 /* NewLongTermView.swift */; };
+		F708290429AF26D900495605 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F708290329AF26D900495605 /* ConfettiSwiftUI */; };
 		E1DE30F429A6A13500686FCE /* PhotoUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE30F329A6A13500686FCE /* PhotoUpload.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,9 @@
 		653A256128338800005D4D48 /* GetMoovinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovinTests.swift; sourceTree = "<group>"; };
 		653A256728338800005D4D48 /* GetMoovinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetMoovinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressCircleView.swift; sourceTree = "<group>"; };
+		F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTermProgressChartView.swift; sourceTree = "<group>"; };
+		F70828FA29AF178400495605 /* NewLongTermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLongTermView.swift; sourceTree = "<group>"; };
 		E1DE30F229A69F7A00686FCE /* GetMoovinModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetMoovinModules; sourceTree = "<group>"; };
 		E1DE30F329A6A13500686FCE /* PhotoUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUpload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +88,7 @@
 				2F59B945298C628800C5107F /* GetMoovinSharedContext in Frameworks */,
 				2F49B7782980407C00BCB272 /* FHIR in Frameworks */,
 				2F49B7762980407C00BCB272 /* CardinalKit in Frameworks */,
+				F708290429AF26D900495605 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +124,7 @@
 			children = (
 				27B13BC729A98A9F0039726B /* StepCountView.swift */,
 				2F9A486029AB57990041F064 /* TodaysGoal.swift */,
+				F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */,
 			);
 			path = TodaysGoal;
 			sourceTree = "<group>";
@@ -124,6 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				2F9A485E29AB57480041F064 /* LongtermProgress.swift */,
+				F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */,
+				F70828FA29AF178400495605 /* NewLongTermView.swift */,
 			);
 			path = LongtermProgress;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 				2F59B944298C628800C5107F /* GetMoovinSharedContext */,
 				2F9A484D29AB3D410041F064 /* LocalStorage */,
 				2F9A485829AB4D790041F064 /* GetMoovinStepCountModule */,
+				F708290329AF26D900495605 /* ConfettiSwiftUI */,
 				2F23EBD829B01ABB00EAF830 /* ImageSource */,
 			);
 			productName = GetMoovinApplication;
@@ -306,6 +318,7 @@
 				2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "CardinalKit" */,
 				2F4E237F2989C5930013F3D9 /* XCRemoteSwiftPackageReference "XCTHealthKit" */,
 				2F905700299E38A4003D3802 /* XCRemoteSwiftPackageReference "XCTestExtensions" */,
+				F708290229AF26D900495605 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 				2F23EBD729B01ABB00EAF830 /* XCRemoteSwiftPackageReference "ImageSource" */,
 			);
 			productRefGroup = 653A254E283387FE005D4D48 /* Products */;
@@ -375,8 +388,11 @@
 				2F4E23832989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* GetMoovinAppDelegate.swift in Sources */,
 				653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */,
+				F70828F929AF13FC00495605 /* LongTermProgressChartView.swift in Sources */,
+				F70828FB29AF178400495605 /* NewLongTermView.swift in Sources */,
 				E1DE30F429A6A13500686FCE /* PhotoUpload.swift in Sources */,
 				2F9A485F29AB57480041F064 /* LongtermProgress.swift in Sources */,
+				F70828F729ADA5FE00495605 /* DailyProgressCircleView.swift in Sources */,
 				27B13BC829A98A9F0039726B /* StepCountView.swift in Sources */,
 				2F9A486129AB57990041F064 /* TodaysGoal.swift in Sources */,
 			);
@@ -774,6 +790,14 @@
 				minimumVersion = 0.3.0;
 			};
 		};
+		F708290229AF26D900495605 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/parthavshergill/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -818,6 +842,11 @@
 		2F9A485829AB4D790041F064 /* GetMoovinStepCountModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = GetMoovinStepCountModule;
+		};
+		F708290329AF26D900495605 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F708290229AF26D900495605 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
