@@ -9,6 +9,7 @@
 import Charts
 import GetMoovinSharedContext
 import GetMoovinStepCountModule
+import ImageSource
 import SwiftUI
 
 struct StepsInfo: Identifiable {
@@ -18,54 +19,94 @@ struct StepsInfo: Identifiable {
     var color: String
 }
 
+struct SheetView: View {
+    @State var image: UIImage?
+    @EnvironmentObject var stepCountDataSource: StepCountDataSource
+    @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
+    
+    private var swiftUIImage: Image? {
+        image.flatMap {
+            Image(uiImage: $0) // swiftlint:disable:this accessibility_label_for_image
+        }
+    }
+    var stepsLeft: Int {
+        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
+    }
+    var body: some View {
+        NavigationStack {
+                ImageSource(image: $image)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .padding()
+                    .navigationTitle("Photo Upload")
+                    .toolbar {
+                        if let swiftUIImage = swiftUIImage {
+                            ToolbarItem {
+                                ShareLink(
+                                    item: swiftUIImage,
+                                    subject: Text("GetMoovin 🚶"),
+                                    message: Text("I met my daily goal in GetMoovin!"),
+                                    preview: SharePreview("GetMoovin 🚶", image: swiftUIImage)
+                                )
+                            }
+                        }
+                    }
+        }
+    }
+}
+
 struct StepCountView: View {
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
     @State var todaysSteps: Int?
-        
-    var body: some View {
-            VStack {
-                if todaysSteps != nil {
-                    DailyProgressCircle(todaysSteps: $todaysSteps)
-
+    @State var showingSheet = false
+    var stepsLeft: Int {
+        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
+    }
+    var stepGoal: Int {
+        (userInformation.stepGoal ?? 1000)
+    }
     
-    /*var body: some View {
-        let data: [StepsInfo] = [
-            .init(type: "Steps", count: stepCountDataSource.todaysSteps ?? 7000, color: "Blue"),
-            .init(type: "Steps", count: 10000, color: "Grey")
-        ]
-        Chart {
-            ForEach(data) { shape in
-                   BarMark(
-                       x: .value("Shape Type", shape.type),
-                       y: .value("Total Count", shape.count)
-                   )
-                   .foregroundStyle(by: .value("Shape Color", shape.color))
+    var body: some View {
+        // this doesnt change anything
+        VStack {
+            Text("Your current goal is: \(stepGoal) steps/day")
+                .padding()
+            if stepsLeft <= 0 {
+                Text("Congrats! You've met your daily goal")
+                if stepsLeft < 0 {
+                    Text("Wow, today you exceeded your goal by \(abs(stepsLeft))")
+                }
+                Button("Take your photo") {
+                    showingSheet.toggle()
+                }
+                .foregroundColor(.white)
+                .font(.title)
+                .padding()
+                .background(.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                .sheet(isPresented: $showingSheet) {
+                    SheetView()
+                }
+            } else {
+                Text("You still need \(stepsLeft) steps to reach your goal!")
             }
-        }
-        ScrollView {
             VStack {
-                if let todaysSteps = stepCountDataSource.todaysSteps {
-                    Text("Today's step count: \(todaysSteps)")*/
-                } else {
-                    ProgressView()
-                        .padding()
-                }
-                if let stepGoal = userInformation.stepGoal {
-                    Text("The goal is: \(stepGoal)")
-                }
+                DailyProgressCircle(todaysSteps: $todaysSteps)
+                .padding()
             }
-        
-        .refreshable {
-            loadStepCount()
-        }
-        .onAppear {
-            loadStepCount()
-        }
-        .onChange(of: scenePhase) { _ in
-            loadStepCount()
+            
+            .refreshable {
+                loadStepCount()
+            }
+            .onAppear {
+                loadStepCount()
+            }
+            .onChange(of: scenePhase) { _ in
+                loadStepCount()
+            }
+            
         }
     }
     
@@ -76,13 +117,13 @@ struct StepCountView: View {
         }
     }
 }
-
-
+    
 #if DEBUG
-struct StepCountView_Previews: PreviewProvider {
-    static var previews: some View {
-        StepCountView()
-            .environmentObject(MockStepCountDataSource(todaysSteps: 1042) as StepCountDataSource)
+    struct StepCountView_Previews: PreviewProvider {
+        static var previews: some View {
+            StepCountView()
+                .environmentObject(MockStepCountDataSource(todaysSteps: 1042) as StepCountDataSource)
+        }
     }
-}
 #endif
+
