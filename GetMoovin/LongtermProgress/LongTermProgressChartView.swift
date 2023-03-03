@@ -1,8 +1,9 @@
 //
-//  LongTermProgressChartView.swift
-//  GetMoovin
+// This source file is part of the CS342 2023 GetMoovin Team Application project
 //
-//  Created by Parthav Shergill on 28/02/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import Charts

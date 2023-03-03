@@ -22,5 +22,11 @@ public enum StorageKeys {
     
     // MARK: - User Information
     /// The current information of the user
-    public static let userInformation = "userinformation"
+    public static let userInformation = "userInformation"
+    
+    /// The user ultimate decade
+    public static let userSelectedAnswer = "userSelectedAnswer"
+    
+    /// The user step goal
+    public static let selectedGoalAnswer = "userSelectedGoal"
 }
