@@ -7,11 +7,15 @@
 //
 
 import ImageSource
+import GetMoovinSharedContext
+import GetMoovinStepCountModule
 import SwiftUI
 
 
 struct PhotoUpload: View {
     @State var image: UIImage?
+    @EnvironmentObject var stepCountDataSource: StepCountDataSource
+    @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     
     
     private var swiftUIImage: Image? {
@@ -19,25 +23,31 @@ struct PhotoUpload: View {
             Image(uiImage: $0) // swiftlint:disable:this accessibility_label_for_image
         }
     }
-    
+    var stepsLeft: Int {
+        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
+    }
     var body: some View {
-        NavigationStack {
-            ImageSource(image: $image)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .padding()
-                .navigationTitle("Photo Upload")
-                .toolbar {
-                    if let swiftUIImage = swiftUIImage {
-                        ToolbarItem {
-                            ShareLink(
-                                item: swiftUIImage,
-                                subject: Text("GetMoovin 🚶"),
-                                message: Text("I met my daily goal in GetMoovin!"),
-                                preview: SharePreview("GetMoovin 🚶", image: swiftUIImage)
-                            )
+        if stepsLeft > 0 {
+            Text("Oops ... you havent walked ur steps!")
+        } else {
+            NavigationStack {
+                ImageSource(image: $image)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .padding()
+                    .navigationTitle("Photo Upload")
+                    .toolbar {
+                        if let swiftUIImage = swiftUIImage {
+                            ToolbarItem {
+                                ShareLink(
+                                    item: swiftUIImage,
+                                    subject: Text("GetMoovin 🚶"),
+                                    message: Text("I met my daily goal in GetMoovin!"),
+                                    preview: SharePreview("GetMoovin 🚶", image: swiftUIImage)
+                                )
+                            }
                         }
                     }
-                }
+            }
         }
     }
 }
