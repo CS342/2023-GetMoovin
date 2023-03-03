@@ -61,7 +61,6 @@ struct StepCountView: View {
     
     @State var todaysSteps: Int?
     @State var showingSheet = false
-    
     var stepsLeft: Int {
         (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
     }

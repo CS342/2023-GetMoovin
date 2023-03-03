@@ -13,10 +13,10 @@ import SwiftUI
 struct GoalSetting: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
-    @State private var selectedAnswer: String = ""
+    @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
     
     let questionText = "To get an idea of your daily step count, simply check your phone."
-    let answerChoices = ["1,000 - 4,999", "5,000 - 7,499", "7,500 - 9,999", "10,000 <"]
+    let answerChoices = ["1,000 - 4,999", "5,000 - 7,499", "7,500 - 9,999", "10,000+"]
     
     var body: some View {
         VStack {
@@ -27,22 +27,28 @@ struct GoalSetting: View {
                     .frame(maxWidth: .infinity) // Expand to full width
                     .bold()
             }
-        
             MultipleChoiceQuestion(
                 questionText: questionText,
                 choices: answerChoices,
-                selectedAnswer: $selectedAnswer
+                selectedAnswer: Binding(
+                    get: { userSelectedGoal },
+                    set: { newValue in
+                        userSelectedGoal = newValue
+                        saveSelectedGoal(newValue)
+                    }
+                )
             )
                 .font(.title) // Increase font size for better readability
                 .padding() // Add padding for better touch target
             
             Spacer()
-
+            
             OnboardingActionsView("GOAL_SETTING_ACTION".moduleLocalized) {
                 onboardingSteps.append(.healthKitPermissions)
             }
             .font(.title) // Increase font size for better readability
             .padding() // Add padding for better touch target
+            .disabled(userSelectedGoal.isEmpty)
         }
         .padding(.horizontal, 24)
         .navigationTitle("GOAL_SETTING_TITLE".moduleLocalized)
@@ -51,6 +57,10 @@ struct GoalSetting: View {
     
     init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
         self._onboardingSteps = onboardingSteps
+    }
+    
+    func saveSelectedGoal(_ newAnswer: String) {
+        userSelectedGoal = newAnswer
     }
 }
 
