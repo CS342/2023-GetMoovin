@@ -34,34 +34,52 @@ struct ProgressCircle: View {
 
 struct DailyProgressCircle: View {
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
+    @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
     
     @Binding var todaysSteps: Int?
-    @State var stepGoal: Int?
     @State private var counter: Int = 0
         
     var progressValue: Float {
-        Float(todaysSteps ?? 0) / Float(stepGoal ?? 10000)
+        Float(todaysSteps ?? 0) / Float(Int(userSelectedGoal) ?? 10000)
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
+            ZStack {
+                ProgressCircle(progress: self.progressValue)
+                    .frame(width: 140, height: 140)
+                    .padding(8)
+                    .foregroundColor(.gray.opacity(0.3))
+                Text("\(Int(progressValue * 100))%")
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .foregroundColor(.blue)
+            }
+            
             if progressValue < 1.0 {
-                ProgressCircle(progress: self.progressValue)
-                    .frame(width: 160.0, height: 160.0)
-                    .padding(20.0)
-                Text("Today's step count: \(todaysSteps ?? 0)")
+                Text("Today's Steps")
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.gray)
+                Text("\(todaysSteps ?? 0)")
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(.blue)
             } else {
-                ProgressCircle(progress: self.progressValue)
-                    .frame(width: 160.0, height: 160.0)
-                    .padding(20.0)
-                Text("Today's step count: \(todaysSteps ?? 0)")
-                Button("🎉") { counter += 1 }
-                    .confettiCannon(counter: $counter)
+                VStack(spacing: 16) {
+                    Text("Congratulations!")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.black)
+                    Text("You've met your daily goal!")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.black)
+                    Button("🎉") { counter += 1 }
+                        .confettiCannon(counter: $counter)
+                }
             }
         }
+        .padding()
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(16)
     }
 }
-
 
 struct DailyProgressCircleView_Previews: PreviewProvider {
     @State static var todaysSteps: Int? = 1024
