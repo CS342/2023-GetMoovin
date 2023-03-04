@@ -16,7 +16,7 @@ struct GoalSetting: View {
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
     
     let questionText = "To get an idea of your daily step count, simply check your phone."
-    let answerChoices = ["1,000 - 4,999", "5,000 - 7,499", "7,500 - 9,999", "10,000+"]
+    let answerChoices = ["1000", "5000", "7000", "10,000"]
     
     var body: some View {
         VStack {

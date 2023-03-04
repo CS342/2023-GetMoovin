@@ -23,15 +23,24 @@ struct SheetView: View {
     @State var image: UIImage?
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
-    
+    @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
+
     private var swiftUIImage: Image? {
         image.flatMap {
             Image(uiImage: $0) // swiftlint:disable:this accessibility_label_for_image
         }
     }
-    var stepsLeft: Int {
-        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
+    
+    var stepGoal: Int {
+        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        return selectedGoalAnswer
     }
+    
+    var stepsLeft: Int {
+        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
+    }
+    
     var body: some View {
         NavigationStack {
                 ImageSource(image: $image)
@@ -58,14 +67,19 @@ struct StepCountView: View {
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
+    @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
     
     @State var todaysSteps: Int?
     @State var showingSheet = false
-    var stepsLeft: Int {
-        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
-    }
+    
     var stepGoal: Int {
-        (userInformation.stepGoal ?? 1000)
+        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        return selectedGoalAnswer
+    }
+    
+    var stepsLeft: Int {
+        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
     
     var body: some View {
@@ -106,10 +120,8 @@ struct StepCountView: View {
             .onChange(of: scenePhase) { _ in
                 loadStepCount()
             }
-            
         }
     }
-    
     
     private func loadStepCount() {
         Task {
@@ -117,7 +129,7 @@ struct StepCountView: View {
         }
     }
 }
-    
+
 #if DEBUG
     struct StepCountView_Previews: PreviewProvider {
         static var previews: some View {
@@ -126,4 +138,3 @@ struct StepCountView: View {
         }
     }
 #endif
-
