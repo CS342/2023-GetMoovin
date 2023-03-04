@@ -80,13 +80,13 @@ extension XCUIApplication {
         XCTAssertTrue(buttons["Next"].waitForExistence(timeout: 2))
         
         // Check that the answer choices are displayed
-        XCTAssertTrue(buttons["1,000 - 4,999"].exists)
-        XCTAssertTrue(buttons["5,000 - 7,499"].exists)
-        XCTAssertTrue(buttons["7,500 - 9,999"].exists)
-        XCTAssertTrue(buttons["10,000+"].exists)
+        XCTAssertTrue(buttons["1000"].exists)
+        XCTAssertTrue(buttons["5000"].exists)
+        XCTAssertTrue(buttons["7000"].exists)
+        XCTAssertTrue(buttons["10,000"].exists)
         
         // Select an answer
-        buttons["1,000 - 4,999"].tap()
+        buttons["1000"].tap()
         
         // Check that the next button is enabled
         XCTAssertTrue(buttons["Next"].isEnabled)

@@ -31,5 +31,4 @@ extension Color {
 }
 
 // Intialize your own color:
-// let myColor = Color(hex: "#000000") 
-
+// let myColor = Color(hex: "#000000")
