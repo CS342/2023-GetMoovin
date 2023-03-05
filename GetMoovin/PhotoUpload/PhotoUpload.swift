@@ -7,8 +7,8 @@
 //
 
 import ImageSource
-import GetMoovinSharedContext
 import GetMoovinStepCountModule
+import GetMoovinSharedContext
 import SwiftUI
 
 

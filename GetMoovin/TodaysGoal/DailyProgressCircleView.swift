@@ -38,9 +38,14 @@ struct DailyProgressCircle: View {
     
     @Binding var todaysSteps: Int?
     @State private var counter: Int = 0
+    
+    var stepGoal: Int {
+        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        return selectedGoalAnswer
+    }
         
     var progressValue: Float {
-        Float(todaysSteps ?? 0) / Float(Int(userSelectedGoal) ?? 10000)
+        Float(todaysSteps ?? 0) / Float((Int(userSelectedGoal) ?? stepGoal) )
     }
     
     var body: some View {

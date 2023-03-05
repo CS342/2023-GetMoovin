@@ -14,6 +14,12 @@ import SwiftUI
 struct LongTermProgressChartView: View {
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
+    @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
+    
+    var stepGoal: Int {
+        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        return selectedGoalAnswer
+    }
     
     let stepMonths: [StepMonth] = [
         .init(date: Date.from(year: 2022, month: 1, day: 1), stepCount: 2000),
@@ -35,7 +41,7 @@ struct LongTermProgressChartView: View {
                     .foregroundStyle(Color.pink.gradient)
                 }
                 
-                RuleMark(y: .value("Goal", 10000))
+                RuleMark(y: .value("Goal", stepGoal))
                     .foregroundStyle(Color.mint)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
                     .annotation(alignment: .leading) {

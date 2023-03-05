@@ -37,7 +37,7 @@ struct SheetView: View {
     }
     
     var stepsLeft: Int {
-        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        _ = Int(userSelectedGoal) ?? 1000
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
     
@@ -78,7 +78,7 @@ struct StepCountView: View {
     }
     
     var stepsLeft: Int {
-        let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
+        _ = Int(userSelectedGoal) ?? 1000
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
     
