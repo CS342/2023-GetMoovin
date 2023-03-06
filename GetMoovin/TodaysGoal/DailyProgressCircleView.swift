@@ -11,7 +11,7 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-struct ProgressCircle: View {
+/*struct ProgressCircle: View {
     var progress: Float
     var color = Color.green
     
@@ -30,7 +30,8 @@ struct ProgressCircle: View {
                 .animation(Animation.easeInOut(duration: 2.0), value: progress)
         }
     }
-}
+} */
+
 
 struct DailyProgressCircle: View {
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
@@ -44,17 +45,21 @@ struct DailyProgressCircle: View {
         return selectedGoalAnswer
     }
         
-    var progressValue: Float {
-        Float(todaysSteps ?? 0) / Float((Int(userSelectedGoal) ?? stepGoal) )
+    var progressValue: Double {
+        Double(todaysSteps ?? 0) / Double((Int(userSelectedGoal) ?? stepGoal) )
     }
     
     var body: some View {
         VStack(spacing: 16) {
             ZStack {
-                ProgressCircle(progress: self.progressValue)
-                    .frame(width: 140, height: 140)
-                    .padding(8)
-                    .foregroundColor(.gray.opacity(0.3))
+                PercentageRing(
+                    ringWidth: 50,
+                    percent: (self.progressValue * 100),
+                    backgroundColor: CustomColor.color1.opacity(0.1),
+                    foregroundColors: [CustomColor.color1, CustomColor.color3, CustomColor.color2]
+                )
+                .frame(width: 300, height: 300)
+                .previewLayout(.sizeThatFits)
                 Text("\(Int(progressValue * 100))%")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .foregroundColor(.blue)
