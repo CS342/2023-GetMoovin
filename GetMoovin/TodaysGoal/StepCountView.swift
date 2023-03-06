@@ -7,11 +7,13 @@
 //
 
 import Charts
+import GetMoovinOnboardingFlow
 import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import ImageSource
+import Onboarding
 import SwiftUI
-
+    
 struct StepsInfo: Identifiable {
     var id = UUID()
     var type: String
@@ -82,6 +84,7 @@ struct StepCountView: View {
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
     
+    
     var body: some View {
         // this doesnt change anything
         VStack {
@@ -108,7 +111,7 @@ struct StepCountView: View {
             }
             VStack {
                 DailyProgressCircle(todaysSteps: $todaysSteps)
-                .padding()
+                    .padding()
             }
             
             .refreshable {
