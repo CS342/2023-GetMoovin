@@ -11,6 +11,45 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
+// New Chart View
+struct ChartView: View {
+    @State private var weekSteps = Int()
+    let stepData = StepCountDataSource()
+    let stepWeeks: [StepWeek] = []
+    
+    // Want to graph step count per week for the most recent 5 weeks
+    var body: some View {
+        //loop over weeks counting steps per week using sumSteps()
+    }
+    
+    // Produces array of dates for the current week
+    func getDaysOfCurrWeek() -> [Date] {
+        var dates: [Date] = []
+        guard let dateInterval = Calendar.current.dateInterval(of: .weekOfYear, for: Date()) else {
+            return dates
+        }
+        Calendar.current.enumerateDates(startingAfter: dateInterval.start, matching: DateComponents(hour:0), matchingPolicy: .nextTime) {date, _, stop in guard let date = date else {
+            return
+        }
+            if date <= dateInterval.end {
+                dates.append(date)
+            } else {
+                stop = true
+            }
+        }
+        return dates
+    }
+    
+    // Sums steps over a week
+    func sumSteps() async {
+        var currWeekDates = getDaysOfCurrWeek()
+        for currDay in currWeekDates {
+            await weekSteps += stepData.steps(forDate: currDay) ?? 0
+        }
+    }
+}
+
+// Old Chart View
 struct LongTermProgressChartView: View {
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
@@ -63,6 +102,12 @@ struct LongTermProgressChartView: View {
 
 struct StepMonth: Identifiable {
     let id = UUID()
+    let date: Date
+    let stepCount: Int
+}
+
+struct StepWeek: Identifiable {
+    var id: ObjectIdentifier
     let date: Date
     let stepCount: Int
 }
