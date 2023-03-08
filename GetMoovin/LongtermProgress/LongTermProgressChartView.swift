@@ -11,46 +11,9 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-// New Chart View
 struct ChartView: View {
-    @State private var weekSteps = Int()
     let stepData = StepCountDataSource()
-    let stepWeeks: [StepWeek] = []
-    
-    // Want to graph step count per week for the most recent 5 weeks
-    var body: some View {
-        //loop over weeks counting steps per week using sumSteps()
-    }
-    
-    // Produces array of dates for the current week
-    func getDaysOfCurrWeek() -> [Date] {
-        var dates: [Date] = []
-        guard let dateInterval = Calendar.current.dateInterval(of: .weekOfYear, for: Date()) else {
-            return dates
-        }
-        Calendar.current.enumerateDates(startingAfter: dateInterval.start, matching: DateComponents(hour:0), matchingPolicy: .nextTime) {date, _, stop in guard let date = date else {
-            return
-        }
-            if date <= dateInterval.end {
-                dates.append(date)
-            } else {
-                stop = true
-            }
-        }
-        return dates
-    }
-    
-    // Sums steps over a week
-    func sumSteps() async {
-        var currWeekDates = getDaysOfCurrWeek()
-        for currDay in currWeekDates {
-            await weekSteps += stepData.steps(forDate: currDay) ?? 0
-        }
-    }
-}
-
-// Old Chart View
-struct LongTermProgressChartView: View {
+    @State var stepWeeks: [StepWeek] = []
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
@@ -60,24 +23,15 @@ struct LongTermProgressChartView: View {
         return selectedGoalAnswer
     }
     
-    let stepMonths: [StepMonth] = [
-        .init(date: Date.from(year: 2022, month: 1, day: 1), stepCount: 2000),
-        .init(date: Date.from(year: 2022, month: 2, day: 1), stepCount: 3000),
-        .init(date: Date.from(year: 2022, month: 3, day: 1), stepCount: 4000),
-        .init(date: Date.from(year: 2022, month: 4, day: 1), stepCount: 5000),
-        .init(date: Date.from(year: 2022, month: 5, day: 1), stepCount: 11000)
-    ]
-    
-    
     var body: some View {
         VStack {
             Chart {
-                ForEach(stepMonths) { stepMonth in
+                ForEach(stepWeeks) { stepWeek in
                     BarMark(
-                        x: .value("Month", stepMonth.date, unit: .month),
-                        y: .value("Views", stepMonth.stepCount)
+                        x: .value("Week", stepWeek.date, unit: .weekOfMonth),
+                        y: .value("Views", stepWeek.stepCount)
                     )
-                    .foregroundStyle(Color.pink.gradient)
+                    .foregroundStyle(CustomColor.color3)
                 }
                 
                 RuleMark(y: .value("Goal", stepGoal))
@@ -90,24 +44,28 @@ struct LongTermProgressChartView: View {
                     }
             }
             .frame(height: 300)
-            .chartXAxis {
-                AxisMarks(values: stepMonths.map { $0.date }) { date in
-                    AxisGridLine()
-                    AxisValueLabel(format: .dateTime.month())
-                }
+        }
+            .task {
+                await getLastFiveWeeks()
             }
+    }
+    
+    // Produces array of dates for the current week
+    func getLastFiveWeeks() async {
+        var dates: [Date] = []
+        for index in -5...0 {
+            dates.append(Date.now.addingTimeInterval(Double((60 * 60 * 24 * 7) * index)))
+        }
+        for date in dates {
+            let stepCount = await stepData.stepsInTheWeek(forDate: date)
+            stepWeeks.append(StepWeek(date: date, stepCount: stepCount ?? 0))
         }
     }
 }
 
-struct StepMonth: Identifiable {
-    let id = UUID()
-    let date: Date
-    let stepCount: Int
-}
 
 struct StepWeek: Identifiable {
-    var id: ObjectIdentifier
+    var id = UUID()
     let date: Date
     let stepCount: Int
 }
@@ -120,8 +78,8 @@ extension Date {
 }
 
 
-struct LongTermProgressChartView_Previews: PreviewProvider {
+struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        LongTermProgressChartView()
+        ChartView()
     }
 }
