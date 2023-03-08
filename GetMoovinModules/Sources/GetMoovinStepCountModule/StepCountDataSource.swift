@@ -73,6 +73,34 @@ public class StepCountDataSource: ObservableObject {
     }
     
     
+    public func stepsInTheWeek(forDate date: Date) async -> Int? {
+        guard HKHealthStore.isHealthDataAvailable() else {
+            return nil
+        }
+        
+        
+        let interval = Calendar.current.dateInterval(of: .weekOfYear, for: date)
+        // Create a predicate for today's samples.
+        let startDate = interval?.start
+        let endDate = interval?.end
+        let week = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+
+        // Create the query descriptor.
+        let stepType = HKQuantityType(.stepCount)
+        let stepsOfTheWeek = HKSamplePredicate.quantitySample(type: stepType, predicate: week)
+        let sumOfStepsQuery = HKStatisticsQueryDescriptor(predicate: stepsOfTheWeek, options: .cumulativeSum)
+
+        // Run the query.
+        guard let steps = try? await sumOfStepsQuery.result(for: healthStore)?
+            .sumQuantity()?
+            .doubleValue(for: HKUnit.count()) else {
+            return 0
+        }
+        
+        return Int(steps)
+    }
+    
+    
     /// <#Description#>
     public func requestStepAuthorization() async throws {
         guard HKHealthStore.isHealthDataAvailable() else {

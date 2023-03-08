@@ -101,7 +101,7 @@ struct StepCountView: View {
                 .foregroundColor(.white)
                 .font(.title)
                 .padding()
-                .background(.blue)
+                .background(CustomColor.color2)
                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                 .sheet(isPresented: $showingSheet) {
                     SheetView()

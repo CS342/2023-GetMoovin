@@ -11,7 +11,9 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-struct LongTermProgressChartView: View {
+struct ChartView: View {
+    let stepData = StepCountDataSource()
+    @State var stepWeeks: [StepWeek] = []
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
@@ -21,24 +23,15 @@ struct LongTermProgressChartView: View {
         return selectedGoalAnswer
     }
     
-    let stepMonths: [StepMonth] = [
-        .init(date: Date.from(year: 2022, month: 1, day: 1), stepCount: 2000),
-        .init(date: Date.from(year: 2022, month: 2, day: 1), stepCount: 3000),
-        .init(date: Date.from(year: 2022, month: 3, day: 1), stepCount: 4000),
-        .init(date: Date.from(year: 2022, month: 4, day: 1), stepCount: 5000),
-        .init(date: Date.from(year: 2022, month: 5, day: 1), stepCount: 11000)
-    ]
-    
-    
     var body: some View {
         VStack {
             Chart {
-                ForEach(stepMonths) { stepMonth in
+                ForEach(stepWeeks) { stepWeek in
                     BarMark(
-                        x: .value("Month", stepMonth.date, unit: .month),
-                        y: .value("Views", stepMonth.stepCount)
+                        x: .value("Week", stepWeek.date, unit: .weekOfMonth),
+                        y: .value("Views", stepWeek.stepCount)
                     )
-                    .foregroundStyle(Color.pink.gradient)
+                    .foregroundStyle(CustomColor.color3)
                 }
                 
                 RuleMark(y: .value("Goal", stepGoal))
@@ -51,18 +44,28 @@ struct LongTermProgressChartView: View {
                     }
             }
             .frame(height: 300)
-            .chartXAxis {
-                AxisMarks(values: stepMonths.map { $0.date }) { date in
-                    AxisGridLine()
-                    AxisValueLabel(format: .dateTime.month())
-                }
+        }
+            .task {
+                await getLastFiveWeeks()
             }
+    }
+    
+    // Produces array of dates for the current week
+    func getLastFiveWeeks() async {
+        var dates: [Date] = []
+        for index in -5...0 {
+            dates.append(Date.now.addingTimeInterval(Double((60 * 60 * 24 * 7) * index)))
+        }
+        for date in dates {
+            let stepCount = await stepData.stepsInTheWeek(forDate: date)
+            stepWeeks.append(StepWeek(date: date, stepCount: stepCount ?? 0))
         }
     }
 }
 
-struct StepMonth: Identifiable {
-    let id = UUID()
+
+struct StepWeek: Identifiable {
+    var id = UUID()
     let date: Date
     let stepCount: Int
 }
@@ -75,8 +78,8 @@ extension Date {
 }
 
 
-struct LongTermProgressChartView_Previews: PreviewProvider {
+struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        LongTermProgressChartView()
+        ChartView()
     }
 }
