@@ -11,6 +11,8 @@ import SwiftUI
 
 
 struct TodaysGoal: View {
+    let notify = NotificationHandler()
+    
     var body: some View {
         NavigationStack {
             StepCountView()

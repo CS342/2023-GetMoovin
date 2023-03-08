@@ -41,3 +41,9 @@
 "HEALTHKIT_PERMISSIONS_SUBTITLE" = "CardinalKit can access data from HealthKit using the HealthKitDataSource module.";
 "HEALTHKIT_PERMISSIONS_DESCRIPTION" = "In order to track and visualize your goals, please allow permisions to HealthKit Access.";
 "HEALTHKIT_PERMISSIONS_BUTTON" = "Grant Access";
+
+// MARK: Notifications
+"NOTIFICATION_PERMISSIONS_TITLE" = "Enable Notifications";
+"NOTIFICATION_PERMISSIONS_SUBTITLE" = "Allow the app to send you notifications.";
+"NOTIFICATION_PERMISSIONS_DESCRIPTION" = "In order to help you stay on track, please allow us to send you notifications. These will be simple and unobtrusive.";
+"NOTIFICATION_PERMISSIONS_BUTTON" = "Enable";

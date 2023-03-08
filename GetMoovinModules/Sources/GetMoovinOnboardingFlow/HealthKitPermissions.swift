@@ -13,7 +13,9 @@ import SwiftUI
 
 
 struct HealthKitPermissions: View {
-    @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
+    @Binding private var onboardingSteps: [OnboardingFlow.Step]
+    
+    //@AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
     var body: some View {
@@ -38,7 +40,7 @@ struct HealthKitPermissions: View {
                     "HEALTHKIT_PERMISSIONS_BUTTON".moduleLocalized,
                     action: {
                         await askForHealthKitPermissions()
-                        completedOnboardingFlow = true
+                        onboardingSteps.append(.notifications)
                     }
                 )
                 .font(.title) // Increase font size for better readability
@@ -47,6 +49,9 @@ struct HealthKitPermissions: View {
         )
     }
     
+    init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
+        self._onboardingSteps = onboardingSteps
+    }
     
     private func askForHealthKitPermissions() async {
         guard HKHealthStore.isHealthDataAvailable() else {
@@ -65,7 +70,9 @@ struct HealthKitPermissions: View {
 
 
 struct HealthKitPermissions_Previews: PreviewProvider {
+    @State private static var path: [OnboardingFlow.Step] = []
+    
     static var previews: some View {
-        HealthKitPermissions()
+        HealthKitPermissions(onboardingSteps: $path)
     }
 }

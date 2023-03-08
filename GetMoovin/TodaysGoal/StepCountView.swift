@@ -74,6 +74,8 @@ struct StepCountView: View {
     @State var todaysSteps: Int?
     @State var showingSheet = false
     
+    let notify = NotificationHandler()
+    
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
         return selectedGoalAnswer
@@ -84,13 +86,13 @@ struct StepCountView: View {
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
     
-    
     var body: some View {
         // this doesnt change anything
         VStack {
             Text("Your current goal is: \(stepGoal) steps/day")
                 .padding()
             if stepsLeft <= 0 {
+                notify.sendAlert()
                 Text("Congrats! You've met your daily goal")
                 if stepsLeft < 0 {
                     Text("Wow, today you exceeded your goal by \(abs(stepsLeft))")

@@ -33,6 +33,7 @@
 		F70828F929AF13FC00495605 /* LongTermProgressChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */; };
 		F70828FB29AF178400495605 /* NewLongTermView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828FA29AF178400495605 /* NewLongTermView.swift */; };
 		F708290429AF26D900495605 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = F708290329AF26D900495605 /* ConfettiSwiftUI */; };
+		F7BD539229B828C800A62F23 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BD539129B828C800A62F23 /* NotificationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressCircleView.swift; sourceTree = "<group>"; };
 		F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongTermProgressChartView.swift; sourceTree = "<group>"; };
 		F70828FA29AF178400495605 /* NewLongTermView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLongTermView.swift; sourceTree = "<group>"; };
+		F7BD539129B828C800A62F23 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				2F4E23822989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift */,
 				2FC975A72978F11A00BA99FE /* Home.swift */,
 				2FC9759D2978E30800BA99FE /* Supporting Files */,
+				F7BD539129B828C800A62F23 /* NotificationHandler.swift */,
 			);
 			path = GetMoovin;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				F70828F729ADA5FE00495605 /* DailyProgressCircleView.swift in Sources */,
 				27B13BC829A98A9F0039726B /* StepCountView.swift in Sources */,
 				2F9A486129AB57990041F064 /* TodaysGoal.swift in Sources */,
+				F7BD539229B828C800A62F23 /* NotificationHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
