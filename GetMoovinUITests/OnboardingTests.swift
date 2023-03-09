@@ -83,7 +83,7 @@ extension XCUIApplication {
         XCTAssertTrue(buttons["1000"].exists)
         XCTAssertTrue(buttons["5000"].exists)
         XCTAssertTrue(buttons["7000"].exists)
-        XCTAssertTrue(buttons["10,000"].exists)
+        XCTAssertTrue(buttons["10000"].exists)
         
         // Select an answer
         buttons["1000"].tap()

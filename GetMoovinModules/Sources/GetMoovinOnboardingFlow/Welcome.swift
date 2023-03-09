@@ -13,22 +13,12 @@ import SwiftUI
 struct Welcome: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
     
-    
     var body: some View {
         ZStack {
-            LinearGradient(
-            gradient: Gradient(
-            colors: [
-            Color(red: 255 / 255, green: 255 / 255, blue: 255 / 255),
-            Color(red: 255 / 255, green: 229 / 255, blue: 204 / 255)
-            ]
-            ),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-            )
             OnboardingView(
                 title: "WELCOME_TITLE".moduleLocalized,
                 subtitle: "WELCOME_SUBTITLE".moduleLocalized,
+
                 areas: [
                     .init(
                         icon: Image(systemName: "figure.walk"),
@@ -42,6 +32,7 @@ struct Welcome: View {
                     ),
                     .init(
                         icon: Image(systemName: "camera.fill"),
+
                         title: "WELCOME_AREA3_TITLE".moduleLocalized,
                         description: "WELCOME_AREA3_DESCRIPTION".moduleLocalized
                     )
@@ -51,22 +42,27 @@ struct Welcome: View {
                     onboardingSteps.append(.information)
                 }
             )
-        } .edgesIgnoringSafeArea(.all)
+            .accentColor(CustomColor.color2)
+        }
         .font(.system(size: 20, weight: .bold))
     }
-    
     
     init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
         self._onboardingSteps = onboardingSteps
     }
 }
 
-
 struct Welcome_Previews: PreviewProvider {
     @State private static var path: [OnboardingFlow.Step] = []
-    
     
     static var previews: some View {
         Welcome(onboardingSteps: $path)
     }
+}
+
+enum CustomColor {
+    static let color1 = Color("Color1")
+    static let color2 = Color("Color2")
+    static let color3 = Color("Color3")
+    static let color4 = Color("Color4")
 }
