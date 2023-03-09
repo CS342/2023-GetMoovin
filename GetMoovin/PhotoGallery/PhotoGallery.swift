@@ -7,8 +7,8 @@
 ////
 //
 import SwiftUI
-import Photos
 import PhotosUI
+import Photos
 import GetMoovinStepCountModule
 import GetMoovinSharedContext
 
@@ -31,7 +31,7 @@ struct PhotoGallery: View {
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+            LazyVGrid(columns: [GridItem(.flexible())], spacing: 10) {
                 ForEach(photos, id: \.self) { asset in
                     if let uiImage = getUIImageFromAsset(asset) {
                         Image(uiImage: uiImage)

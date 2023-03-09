@@ -46,7 +46,7 @@ struct HomeView: View {
             PhotoGallery()
                 .tag(Tabs.photoGallery)
                 .tabItem {
-                    Label("PHOTO_GALLERY_TAB_TITLE", systemImage: "server.rack")
+                    Label("Photo Gallery", systemImage: "server.rack")
                 }
         }
     }
