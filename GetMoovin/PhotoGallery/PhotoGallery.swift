@@ -61,3 +61,4 @@ struct PhotoGallery_Previews: PreviewProvider {
         PhotoGallery()
     }
 }
+
