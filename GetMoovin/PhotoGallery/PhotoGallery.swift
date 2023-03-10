@@ -7,8 +7,8 @@
 ////
 //
 import SwiftUI
-import PhotosUI
 import Photos
+import PhotosUI
 import GetMoovinStepCountModule
 import GetMoovinSharedContext
 
