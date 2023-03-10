@@ -11,5 +11,7 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow access to Photos to display a live feed of all of your GetMoovin photos!</string>
 </dict>
 </plist>
