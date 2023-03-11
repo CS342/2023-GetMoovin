@@ -16,6 +16,7 @@ struct HomeView: View {
         case schedule
         case contact
         case mockUpload
+        case photoGallery
         case photoUpload
         case todaysGoal
         case longtermGoal
@@ -41,6 +42,11 @@ struct HomeView: View {
                 .tag(Tabs.photoUpload)
                 .tabItem {
                     Label("PHOTO_UPLOAD_TAB_TITLE", systemImage: "server.rack")
+                }
+            PhotoGallery()
+                .tag(Tabs.photoGallery)
+                .tabItem {
+                    Label("Photo Gallery", systemImage: "server.rack")
                 }
         }
     }
