@@ -50,6 +50,8 @@ struct Information: View {
             .font(.title) // Increase font size for better readability
             .padding() // Add padding for better touch target
             .disabled(selectedAnswer.isEmpty)
+            .accentColor(CustomColor.color2)
+            .padding(.bottom, 20)
         }
         .padding(.horizontal, 24)
         .navigationTitle("INFORMATION_TITLE".moduleLocalized)

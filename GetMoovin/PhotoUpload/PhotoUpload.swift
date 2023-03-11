@@ -7,9 +7,9 @@
 //
 
 import ImageSource
-import GetMoovinStepCountModule
 import GetMoovinSharedContext
 import SwiftUI
+import GetMoovinStepCountModule
 
 
 struct PhotoUpload: View {

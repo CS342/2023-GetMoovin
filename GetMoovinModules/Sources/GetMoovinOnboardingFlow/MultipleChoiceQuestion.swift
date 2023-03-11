@@ -28,7 +28,6 @@ struct MultipleChoiceQuestion: View {
                         Spacer()
                         if selectedAnswer == choice {
                             Image(systemName: "checkmark")
-                                .foregroundColor(.accentColor)
                         }
                     }
                 })
