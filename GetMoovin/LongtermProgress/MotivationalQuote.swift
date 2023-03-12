@@ -1,8 +1,9 @@
 //
-//  MotivationalQuote.swift
-//  GetMoovin
+// This source file is part of the CS342 2023 GetMoovin Team Application project
 //
-//  Created by Anusheh Chaudry on 3/12/23.
+// SPDX-FileCopyrightText: 2023 Stanford University
+//
+// SPDX-License-Identifier: MIT
 //
 
 import SwiftUI
@@ -47,6 +48,10 @@ struct MotivationalQuote: View {
         .padding()
         .background(CustomColor.color2)
         .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+        .frame(width: 350, height: 100)
+                    .scaledToFit()
+                    .background(Color(UIColor.systemGray6))
+                    .cornerRadius(20)
         }
     }
 
