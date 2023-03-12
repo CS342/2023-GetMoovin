@@ -34,7 +34,7 @@ struct ChartView: View {
                     .foregroundStyle(CustomColor.color3)
                 }
                 
-                RuleMark(y: .value("Goal", stepGoal))
+                RuleMark(y: .value("Goal", stepGoal * 7))
                     .foregroundStyle(Color.mint)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
                     .annotation(alignment: .leading) {
@@ -44,6 +44,7 @@ struct ChartView: View {
                     }
             }
             .frame(height: 300)
+            MotivationalQuote()
         }
             .task {
                 await getLastFiveWeeks()
@@ -52,6 +53,7 @@ struct ChartView: View {
     
     // Produces array of dates for the current week
     func getLastFiveWeeks() async {
+        stepWeeks.removeAll()
         var dates: [Date] = []
         for index in -5...0 {
             dates.append(Date.now.addingTimeInterval(Double((60 * 60 * 24 * 7) * index)))

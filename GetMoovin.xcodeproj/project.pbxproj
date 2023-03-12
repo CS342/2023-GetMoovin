@@ -28,6 +28,7 @@
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* GetMoovinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* GetMoovinTests.swift */; };
 		75D1429629B5450B00E1856C /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1429529B5450B00E1856C /* PercentageRing.swift */; };
+		A68A2FCD29BDEBB3006B7112 /* MotivationalQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */; };
 		C6673AEE29BA65500010A474 /* PhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6673AED29BA65500010A474 /* PhotoGallery.swift */; };
 		E1DE30F429A6A13500686FCE /* PhotoUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE30F329A6A13500686FCE /* PhotoUpload.swift */; };
 		F70828F729ADA5FE00495605 /* DailyProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */; };
@@ -72,6 +73,7 @@
 		653A256728338800005D4D48 /* GetMoovinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetMoovinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D1429529B5450B00E1856C /* PercentageRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
+		A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationalQuote.swift; sourceTree = "<group>"; };
 		C6673AED29BA65500010A474 /* PhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGallery.swift; sourceTree = "<group>"; };
 		E1DE30F229A69F7A00686FCE /* GetMoovinModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetMoovinModules; sourceTree = "<group>"; };
 		E1DE30F329A6A13500686FCE /* PhotoUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUpload.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				2F9A485E29AB57480041F064 /* LongtermProgress.swift */,
 				F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */,
 				F70828FA29AF178400495605 /* NewLongTermView.swift */,
+				A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */,
 			);
 			path = LongtermProgress;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift in Sources */,
 				75D1429629B5450B00E1856C /* PercentageRing.swift in Sources */,
+				A68A2FCD29BDEBB3006B7112 /* MotivationalQuote.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* GetMoovinAppDelegate.swift in Sources */,
 				653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */,
 				F70828F929AF13FC00495605 /* LongTermProgressChartView.swift in Sources */,
