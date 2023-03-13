@@ -9,7 +9,6 @@
 import GetMoovinStepCountModule
 import SwiftUI
 
-
 struct TodaysGoal: View {
     var body: some View {
         NavigationStack {
@@ -18,7 +17,6 @@ struct TodaysGoal: View {
         }
     }
 }
-
 
 #if DEBUG
 struct TodaysGoal_Previews: PreviewProvider {

@@ -11,7 +11,7 @@ import SwiftUI
 struct MotivationalQuote: View {
     @State private var randomInt = 0
     @State var showingSheet = false
-    
+
     let quotes = [
     "",
     """
@@ -38,7 +38,7 @@ struct MotivationalQuote: View {
         }
         generateMessageButton
     }
-    
+
     private var generateMessageButton: some View {
         Button("Motivational Message") {
             randomInt = Int.random(in: 1..<quotes.count)
@@ -54,7 +54,6 @@ struct MotivationalQuote: View {
                     .cornerRadius(20)
         }
     }
-
 
 struct MotivationalQuote_Previews: PreviewProvider {
     static var previews: some View {

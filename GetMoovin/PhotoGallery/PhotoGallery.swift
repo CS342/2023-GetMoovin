@@ -6,28 +6,16 @@
 //// SPDX-License-Identifier: MIT
 ////
 //
-import SwiftUI
+import GetMoovinSharedContext
+import GetMoovinStepCountModule
 import Photos
 import PhotosUI
-import GetMoovinStepCountModule
-import GetMoovinSharedContext
-
+import SwiftUI
 
 struct PhotoGallery: View {
-
     private var photos = [PHAsset]()
 
-    init() {
-        fetchPhotos()
-    }
-
-    mutating private func fetchPhotos() {
-        let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
-        let newPhotos = (0..<fetchResult.count).compactMap { fetchResult.object(at: $0) }
-        self.photos = newPhotos
-    }
+    private let options = PHFetchOptions()
 
     var body: some View {
         ScrollView {
@@ -39,11 +27,17 @@ struct PhotoGallery: View {
                             .scaledToFill()
                             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                             .clipped()
+                            .accessibility(label: Text("Image Grid"))
                     }
                 }
             }
         }
     }
+    
+    init() {
+        fetchPhotos()
+    }
+
 
     private func getUIImageFromAsset(_ asset: PHAsset) -> UIImage? {
         var resultImage: UIImage?
@@ -53,10 +47,19 @@ struct PhotoGallery: View {
             for: asset,
             targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
             contentMode: .aspectFill,
-            options: options) { (image, info) in
+            options: options
+        ) { image, _ in
             resultImage = image
         }
         return resultImage
+    }
+    
+    private mutating func fetchPhotos() {
+        let options = PHFetchOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
+        let newPhotos = (0..<fetchResult.count).compactMap { fetchResult.object(at: $0) }
+        self.photos = newPhotos
     }
 }
 
@@ -65,4 +68,3 @@ struct PhotoGallery_Previews: PreviewProvider {
         PhotoGallery()
     }
 }
-

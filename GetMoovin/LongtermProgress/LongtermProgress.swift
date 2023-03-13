@@ -11,11 +11,10 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-
 struct LongtermProgress: View {
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
-    
+
     var body: some View {
         NavigationStack {
             ChartView()
@@ -24,7 +23,6 @@ struct LongtermProgress: View {
         }
     }
 }
-
 
 #if DEBUG
 struct LongtermProgress_Previews: PreviewProvider {

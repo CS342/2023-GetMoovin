@@ -9,11 +9,9 @@
 import GetMoovinSharedContext
 import SwiftUI
 
-
 private struct GetMoovinTestingSetup: ViewModifier {
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
-    
-    
+
     func body(content: Content) -> some View {
         content
             .task {
@@ -26,7 +24,6 @@ private struct GetMoovinTestingSetup: ViewModifier {
             }
     }
 }
-
 
 extension View {
     func testingSetup() -> some View {

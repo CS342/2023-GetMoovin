@@ -10,13 +10,13 @@ import SwiftUI
 
 struct NewLongTermView: View {
     @State var pickerSelectedItem = 0
-    
+
     @State var dataPoints: [[CGFloat]] = [
         [50, 100, 150, 75, 60, 10, 40, 45, 55, 50, 100, 150],
         [150, 100, 50, 75, 60, 10, 40, 45, 55, 50, 100, 150],
         [10, 20, 30, 75, 60, 10, 40, 45, 55, 50, 100, 150]
     ]
-    
+
     var body: some View {
         ZStack {
             Color.green.edgesIgnoringSafeArea(.all)
@@ -35,7 +35,6 @@ struct NewLongTermView: View {
                     BarView(value: dataPoints[pickerSelectedItem][2])
                 }
                 .padding(.top, 24)
-                .animation(.default)
             }
         }
     }
@@ -43,7 +42,7 @@ struct NewLongTermView: View {
 
 struct BarView: View {
     var value: CGFloat
-    
+
     var body: some View {
         VStack {
             ZStack(alignment: .bottom) {
