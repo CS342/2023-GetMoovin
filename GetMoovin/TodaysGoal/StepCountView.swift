@@ -32,6 +32,9 @@ struct SheetView: View {
             Image(uiImage: $0) // swiftlint:disable:this accessibility_label_for_image
         }
     }
+    var stepsLeft: Int {
+        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
+    }
     
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
@@ -42,7 +45,7 @@ struct SheetView: View {
         _ = Int(userSelectedGoal) ?? 1000
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
-    
+  
     var body: some View {
         NavigationStack {
                 ImageSource(image: $image)
@@ -75,7 +78,54 @@ struct StepCountView: View {
     
     @State var todaysSteps: Int?
     @State var showingSheet = false
+  
+    var stepsLeft: Int {
+        (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
+    }
+    var stepGoal: Int {
+        (userInformation.stepGoal ?? 1000)
+    }
     
+    var body: some View {
+        // this doesnt change anything
+        VStack {
+            Text("Your current goal is: \(stepGoal) steps/day")
+                .padding()
+            if stepsLeft <= 0 {
+                Text("Congrats! You've met your daily goal")
+                if stepsLeft < 0 {
+                    Text("Wow, today you exceeded your goal by \(abs(stepsLeft))")
+                }
+                Button("Take your photo") {
+                    showingSheet.toggle()
+                }
+                .foregroundColor(.white)
+                .font(.title)
+                .padding()
+                .background(.blue)
+                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+                .sheet(isPresented: $showingSheet) {
+                    SheetView()
+                }
+            } else {
+                Text("You still need \(stepsLeft) steps to reach your goal!")
+            }
+            VStack {
+                DailyProgressCircle(todaysSteps: $todaysSteps)
+                .padding()
+            }
+            
+            .refreshable {
+                loadStepCount()
+            }
+            .onAppear {
+                loadStepCount()
+            }
+            .onChange(of: scenePhase) { _ in
+                loadStepCount()
+            }
+          
+          
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
         return selectedGoalAnswer
@@ -180,8 +230,7 @@ struct StepCountView: View {
         }
     }
 }
-
-
+    
 #if DEBUG
     struct StepCountView_Previews: PreviewProvider {
         static var previews: some View {
@@ -190,3 +239,4 @@ struct StepCountView: View {
         }
     }
 #endif
+
