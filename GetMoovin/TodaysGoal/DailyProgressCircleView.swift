@@ -11,23 +11,22 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-
 struct DailyProgressCircle: View {
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
-    
+
     @Binding var todaysSteps: Int?
     @State private var counter: Int = 0
-    
+
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
         return selectedGoalAnswer
     }
-        
+
     var progressValue: Double {
         Double(todaysSteps ?? 0) / Double((Int(userSelectedGoal) ?? stepGoal) )
     }
-    
+
     var body: some View {
         VStack(spacing: 16) {
             ZStack {
@@ -48,7 +47,7 @@ struct DailyProgressCircle: View {
                     .font(.system(size: 40, weight: .bold))
                     .foregroundColor(CustomColor.color2)
             }
-            
+
             if progressValue < 1.0 {
                 Text("\(Int(progressValue * 100))%")
                     .font(.system(size: 30, weight: .bold, design: .rounded))
@@ -71,7 +70,7 @@ struct DailyProgressCircle: View {
 
 struct DailyProgressCircleView_Previews: PreviewProvider {
     @State static var todaysSteps: Int? = 1024
-    
+
     static var previews: some View {
         DailyProgressCircle(todaysSteps: $todaysSteps)
     }

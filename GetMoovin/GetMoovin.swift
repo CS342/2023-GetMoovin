@@ -16,8 +16,7 @@ import SwiftUI
 struct GetMoovin: App {
     @UIApplicationDelegateAdaptor(GetMoovinAppDelegate.self) var appDelegate
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
-    
-    
+
     var body: some Scene {
         WindowGroup {
             HomeView()

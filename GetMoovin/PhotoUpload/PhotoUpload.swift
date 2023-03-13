@@ -5,19 +5,16 @@
 //
 // SPDX-License-Identifier: MIT
 //
-
-import ImageSource
 import GetMoovinSharedContext
-import SwiftUI
 import GetMoovinStepCountModule
-
+import ImageSource
+import SwiftUI
 
 struct PhotoUpload: View {
     @State var image: UIImage?
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
-    
-    
+
     private var swiftUIImage: Image? {
         image.flatMap {
             Image(uiImage: $0) // swiftlint:disable:this accessibility_label_for_image

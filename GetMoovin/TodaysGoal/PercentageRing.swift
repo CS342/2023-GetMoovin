@@ -13,13 +13,13 @@ struct RingShape: Shape {
     private var percent: Double
     private var startAngle: Double
     private let drawnClockwise: Bool
-    
+
     init(percent: Double = 100, startAngle: Double = -90, drawnClockwise: Bool = false) {
         self.percent = percent
         self.startAngle = startAngle
         self.drawnClockwise = drawnClockwise
     }
-    
+
     static func percentToAngle(percent: Double, startAngle: Double) -> Double {
         (percent / 100 * 360) + startAngle
     }
@@ -40,7 +40,7 @@ struct PercentageRing: View {
     private static let ShadowColor = Color.black.opacity(0.2)
     private static let ShadowRadius: CGFloat = 5
     private static let ShadowOffsetMultiplier: CGFloat = ShadowRadius + 2
-    
+
     private let ringWidth: CGFloat
     private let percent: Double
     private let backgroundColor: Color
@@ -49,7 +49,7 @@ struct PercentageRing: View {
     private var gradientStartAngle: Double {
         self.percent >= 100 ? relativePercentageAngle - 360 : startAngle
     }
-    
+
     private var absolutePercentageAngle: Double {
         RingShape.percentToAngle(percent: self.percent, startAngle: 0)
     }
@@ -71,14 +71,7 @@ struct PercentageRing: View {
             endAngle: Angle(degrees: relativePercentageAngle)
         )
     }
-    
-    init(ringWidth: CGFloat, percent: Double, backgroundColor: Color, foregroundColors: [Color]) {
-        self.ringWidth = ringWidth
-        self.percent = percent
-        self.backgroundColor = backgroundColor
-        self.foregroundColors = foregroundColors
-    }
-    
+
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -112,6 +105,13 @@ struct PercentageRing: View {
         // Padding to ensure that the entire ring fits within the view size allocated
         .padding(self.ringWidth / 2)
     }
+
+    init(ringWidth: CGFloat, percent: Double, backgroundColor: Color, foregroundColors: [Color]) {
+        self.ringWidth = ringWidth
+        self.percent = percent
+        self.backgroundColor = backgroundColor
+        self.foregroundColors = foregroundColors
+    }
     
     private func getEndCircleLocation(frame: CGSize) -> (CGFloat, CGFloat) {
         // Get angle of the end circle with respect to the start angle
@@ -119,7 +119,7 @@ struct PercentageRing: View {
         let offsetRadius = min(frame.width, frame.height) / 2
         return (offsetRadius * cos(angleOfEndInRadians).toCGFloat(), offsetRadius * sin(angleOfEndInRadians).toCGFloat())
     }
-    
+
     private func getEndCircleShadowOffset() -> (CGFloat, CGFloat) {
         let angleForOffset = absolutePercentageAngle + (self.startAngle + 90)
         let angleForOffsetInRadians = angleForOffset.toRadians()
@@ -129,7 +129,7 @@ struct PercentageRing: View {
         let yOffset = relativeYOffset.toCGFloat() * PercentageRing.ShadowOffsetMultiplier
         return (xOffset, yOffset)
     }
-    
+
     private func getShowShadow(frame: CGSize) -> Bool {
         let circleRadius = min(frame.width, frame.height) / 2
         let remainingAngleInRadians = (360 - absolutePercentageAngle).toRadians().toCGFloat()
@@ -140,14 +140,6 @@ struct PercentageRing: View {
         }
         return false
     }
-}
-
-enum CustomColor {
-    static let color1 = Color("Color1")
-    static let color2 = Color("Color2")
-    static let color3 = Color("Color3")
-    static let color4 = Color("Color4")
-    static let color5 = Color("Color5")
 }
 
 extension Double {

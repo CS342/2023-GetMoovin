@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-struct Colors {
+enum Colors {
     static let primaryColor = Color(hex: "#277DA1")
     static let secondaryColor1 = Color(hex: "#F7CAC9")
     static let secondaryColor2 = Color(hex: "#9BC4CB")
