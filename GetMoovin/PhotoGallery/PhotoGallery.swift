@@ -53,7 +53,8 @@ struct PhotoGallery: View {
             for: asset,
             targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
             contentMode: .aspectFill,
-            options: options) { (image, info) in resultImage = image
+            options: options) { (image, info) in
+            resultImage = image
         }
         return resultImage
     }
