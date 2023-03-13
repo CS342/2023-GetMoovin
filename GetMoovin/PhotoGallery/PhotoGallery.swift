@@ -49,8 +49,11 @@ struct PhotoGallery: View {
         var resultImage: UIImage?
         let options = PHImageRequestOptions()
         options.isSynchronous = true
-        PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight), contentMode: .aspectFill, options: options) { (image, info) in
-            resultImage = image
+        PHImageManager.default().requestImage(
+            for: asset,
+            targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
+            contentMode: .aspectFill,
+            options: options) { (image, info) in resultImage = image
         }
         return resultImage
     }
