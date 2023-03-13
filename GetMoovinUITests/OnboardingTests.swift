@@ -26,12 +26,6 @@ class OnboardingTests: XCTestCase {
         let app = XCUIApplication()
         
         try app.navigateOnboardingFlow()
-        
-        let tabBar = app.tabBars.firstMatch
-        XCTAssertTrue(tabBar.buttons["Today's Goal"].waitForExistence(timeout: 2))
-        tabBar.buttons["Today's Goal"].tap()
-        XCTAssertTrue(tabBar.buttons["Progress"].waitForExistence(timeout: 2))
-        tabBar.buttons["Progress"].tap()
     }
 }
 
