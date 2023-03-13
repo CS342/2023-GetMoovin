@@ -27,7 +27,7 @@ struct HealthKitPermissions: View {
                     Spacer()
                     Image(systemName: "heart.text.square.fill")
                         .font(.system(size: 150))
-                        .foregroundColor(.accentColor)
+                        .foregroundColor(CustomColor.color2)
                     Text("HEALTHKIT_PERMISSIONS_DESCRIPTION", bundle: .module)
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 16)
@@ -43,6 +43,8 @@ struct HealthKitPermissions: View {
                 )
                 .font(.title) // Increase font size for better readability
                 .padding() // Add padding for better touch target
+                .accentColor(CustomColor.color2)
+                .padding(.bottom, 40)
             }
         )
     }

@@ -13,10 +13,7 @@ import SwiftUI
 
 struct HomeView: View {
     enum Tabs: String {
-        case schedule
-        case contact
-        case mockUpload
-        case photoUpload
+        case photoGallery
         case todaysGoal
         case longtermGoal
     }
@@ -37,10 +34,10 @@ struct HomeView: View {
                 .tabItem {
                     Label("LONGTERM_PROGRESS_TAB_TITLE", systemImage: "chart.line.uptrend.xyaxis")
                 }
-            PhotoUpload()
-                .tag(Tabs.photoUpload)
+            PhotoGallery()
+                .tag(Tabs.photoGallery)
                 .tabItem {
-                    Label("PHOTO_UPLOAD_TAB_TITLE", systemImage: "server.rack")
+                    Label("Photo Gallery", systemImage: "server.rack")
                 }
         }
     }

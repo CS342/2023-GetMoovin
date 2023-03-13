@@ -10,7 +10,6 @@ import XCTest
 import XCTestExtensions
 import XCTHealthKit
 
-
 class OnboardingTests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
@@ -60,11 +59,39 @@ extension XCUIApplication {
     
     private func navigateOnboardingFlowInformation() throws {
         XCTAssertTrue(buttons["Next"].waitForExistence(timeout: 2))
+        
+        // Check that the answer choices are displayed
+        XCTAssertTrue(buttons["60-69"].exists)
+        XCTAssertTrue(buttons["70-79"].exists)
+        XCTAssertTrue(buttons["80-89"].exists)
+        XCTAssertTrue(buttons["90-99"].exists)
+        
+        // Select an answer
+        buttons["70-79"].tap()
+        
+        // Check that the next button is enabled
+        XCTAssertTrue(buttons["Next"].isEnabled)
+        
+        // Tap the next button
         buttons["Next"].tap()
     }
     
     private func navigateOnboardingFlowGoalSetting() throws {
         XCTAssertTrue(buttons["Next"].waitForExistence(timeout: 2))
+        
+        // Check that the answer choices are displayed
+        XCTAssertTrue(buttons["1000"].exists)
+        XCTAssertTrue(buttons["5000"].exists)
+        XCTAssertTrue(buttons["7000"].exists)
+        XCTAssertTrue(buttons["10000"].exists)
+        
+        // Select an answer
+        buttons["1000"].tap()
+        
+        // Check that the next button is enabled
+        XCTAssertTrue(buttons["Next"].isEnabled)
+        
+        // Tap the next button
         buttons["Next"].tap()
     }
     

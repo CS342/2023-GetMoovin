@@ -6,13 +6,15 @@
 // SPDX-License-Identifier: MIT
 //
 
+import GetMoovinSharedContext
 import Onboarding
 import SwiftUI
 
-
 struct Information: View {
     @Binding private var onboardingSteps: [OnboardingFlow.Step]
-    @State private var selectedAnswer: String = ""
+    @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
+    
+    @AppStorage(StorageKeys.userSelectedAnswer) var selectedAnswer = ""
     
     let questionText = "In other words, what decade do you hope to live?"
     let answerChoices = ["60-69", "70-79", "80-89", "90-99"]
@@ -29,10 +31,16 @@ struct Information: View {
             MultipleChoiceQuestion(
                 questionText: questionText,
                 choices: answerChoices,
-                selectedAnswer: $selectedAnswer
+                selectedAnswer: Binding(
+                    get: { selectedAnswer },
+                    set: { newValue in
+                        selectedAnswer = newValue
+                        saveSelectedAnswer(newValue)
+                    }
+                )
             )
-                .font(.title) // Increase font size for better readability
-                .padding() // Add padding for better touch target
+            .font(.title) // Increase font size for better readability
+            .padding() // Add padding for better touch target
             
             Spacer()
             
@@ -41,6 +49,9 @@ struct Information: View {
             }
             .font(.title) // Increase font size for better readability
             .padding() // Add padding for better touch target
+            .disabled(selectedAnswer.isEmpty)
+            .accentColor(CustomColor.color2)
+            .padding(.bottom, 20)
         }
         .padding(.horizontal, 24)
         .navigationTitle("INFORMATION_TITLE".moduleLocalized)
@@ -49,6 +60,10 @@ struct Information: View {
     
     init(onboardingSteps: Binding<[OnboardingFlow.Step]>) {
         self._onboardingSteps = onboardingSteps
+    }
+    
+    func saveSelectedAnswer(_ newAnswer: String) {
+        selectedAnswer = newAnswer
     }
 }
 
