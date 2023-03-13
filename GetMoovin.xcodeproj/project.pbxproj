@@ -146,9 +146,9 @@
 		2F9A485D29AB57370041F064 /* LongtermProgress */ = {
 			isa = PBXGroup;
 			children = (
-				F70828FA29AF178400495605 /* NewLongTermView.swift */,
 				F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */,
 				2F9A485E29AB57480041F064 /* LongtermProgress.swift */,
+				F70828FA29AF178400495605 /* NewLongTermView.swift */,
 				6340B62129BF383A0053D526 /* SwiftUIView.swift */,
 				A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */,
 			);

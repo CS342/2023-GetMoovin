@@ -11,7 +11,13 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-struct ChartView: View {
+struct StepWeek: Identifiable {
+    var id = UUID()
+    let date: Date
+    let stepCount: Int
+}
+
+struct LongTermProgressChartView: View {
     let stepData = StepCountDataSource()
     @State var stepWeeks: [StepWeek] = []
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
@@ -70,12 +76,6 @@ struct ChartView: View {
     }
 }
 
-struct StepWeek: Identifiable {
-    var id = UUID()
-    let date: Date
-    let stepCount: Int
-}
-
 extension Date {
     static func from(year: Int, month: Int, day: Int) -> Date {
         let components = DateComponents(year: year, month: month, day: day)
@@ -85,6 +85,6 @@ extension Date {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        LongTermProgressChartView()
     }
 }

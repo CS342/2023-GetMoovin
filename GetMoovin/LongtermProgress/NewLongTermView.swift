@@ -8,6 +8,22 @@
 
 import SwiftUI
 
+struct BarView: View {
+    var value: CGFloat
+
+    var body: some View {
+        VStack {
+            ZStack(alignment: .bottom) {
+                Capsule().frame(width: 30, height: 200)
+                Capsule().frame(width: 30, height: value)
+                    .foregroundColor(.white)
+            }
+            Text("D").padding(.top, 8)
+        }
+    }
+}
+
+
 struct NewLongTermView: View {
     @State var pickerSelectedItem = 0
 
@@ -36,21 +52,6 @@ struct NewLongTermView: View {
                 }
                 .padding(.top, 24)
             }
-        }
-    }
-}
-
-struct BarView: View {
-    var value: CGFloat
-
-    var body: some View {
-        VStack {
-            ZStack(alignment: .bottom) {
-                Capsule().frame(width: 30, height: 200)
-                Capsule().frame(width: 30, height: value)
-                    .foregroundColor(.white)
-            }
-            Text("D").padding(.top, 8)
         }
     }
 }
