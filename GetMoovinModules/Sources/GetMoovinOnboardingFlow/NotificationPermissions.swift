@@ -14,7 +14,7 @@ import SwiftUI
 
 struct NotificationPermissions: View {
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
-    
+    let notify = NotificationSetup()
     
     var body: some View {
         OnboardingView(
@@ -40,6 +40,7 @@ struct NotificationPermissions: View {
                     action: {
                         askForNotificationPermissions()
                         completedOnboardingFlow = true
+                        notify.notificationTrigger()
                     }
                 )
                 .font(.title) // Increase font size for better readability
