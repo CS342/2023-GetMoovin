@@ -11,18 +11,24 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-struct ChartView: View {
+struct StepWeek: Identifiable {
+    var id = UUID()
+    let date: Date
+    let stepCount: Int
+}
+
+struct LongTermProgressChartView: View {
     let stepData = StepCountDataSource()
     @State var stepWeeks: [StepWeek] = []
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
-    
+
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
         return selectedGoalAnswer
     }
-    
+
     var body: some View {
         VStack {
             Chart {
@@ -33,7 +39,7 @@ struct ChartView: View {
                     )
                     .foregroundStyle(CustomColor.color3)
                 }
-                
+
                 RuleMark(y: .value("Goal", stepGoal * 7))
                     .foregroundStyle(Color.mint)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
@@ -55,7 +61,7 @@ struct ChartView: View {
                 await getLastFiveWeeks()
             }
     }
-    
+
     // Produces array of dates for the current week
     func getLastFiveWeeks() async {
         stepWeeks.removeAll()
@@ -70,23 +76,15 @@ struct ChartView: View {
     }
 }
 
-
-struct StepWeek: Identifiable {
-    var id = UUID()
-    let date: Date
-    let stepCount: Int
-}
-
 extension Date {
     static func from(year: Int, month: Int, day: Int) -> Date {
         let components = DateComponents(year: year, month: month, day: day)
-        return Calendar.current.date(from: components)!
+        return Calendar.current.date(from: components) ?? Date()
     }
 }
 
-
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        LongTermProgressChartView()
     }
 }

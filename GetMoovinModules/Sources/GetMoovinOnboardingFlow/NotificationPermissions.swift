@@ -29,6 +29,7 @@ struct NotificationPermissions: View {
                     Image(systemName: "text.bubble")
                         .font(.system(size: 120))
                         .foregroundColor(.accentColor)
+                        .accentColor(CustomColor.color2)
                     Text("NOTIFICATION_PERMISSIONS_DESCRIPTION", bundle: .module)
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 16)
@@ -70,4 +71,3 @@ struct NotificationPermissions_Previews: PreviewProvider {
         NotificationPermissions()
     }
 }
-

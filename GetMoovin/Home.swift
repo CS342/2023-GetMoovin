@@ -10,18 +10,15 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
-
 struct HomeView: View {
     enum Tabs: String {
         case photoGallery
         case todaysGoal
         case longtermGoal
     }
-    
-    
+
     @AppStorage(StorageKeys.homeTabSelection) var selectedTab = Tabs.todaysGoal
-    
-    
+
     var body: some View {
         TabView(selection: $selectedTab) {
             TodaysGoal()
@@ -42,7 +39,6 @@ struct HomeView: View {
         }
     }
 }
-
 
 #if DEBUG
 struct MainView_Previews: PreviewProvider {
