@@ -72,13 +72,6 @@ struct PercentageRing: View {
         )
     }
     
-    init(ringWidth: CGFloat, percent: Double, backgroundColor: Color, foregroundColors: [Color]) {
-        self.ringWidth = ringWidth
-        self.percent = percent
-        self.backgroundColor = backgroundColor
-        self.foregroundColors = foregroundColors
-    }
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -113,6 +106,13 @@ struct PercentageRing: View {
         .padding(self.ringWidth / 2)
     }
     
+    init(ringWidth: CGFloat, percent: Double, backgroundColor: Color, foregroundColors: [Color]) {
+        self.ringWidth = ringWidth
+        self.percent = percent
+        self.backgroundColor = backgroundColor
+        self.foregroundColors = foregroundColors
+    }
+    
     private func getEndCircleLocation(frame: CGSize) -> (CGFloat, CGFloat) {
         // Get angle of the end circle with respect to the start angle
         let angleOfEndInRadians: Double = relativePercentageAngle.toRadians()
@@ -140,12 +140,6 @@ struct PercentageRing: View {
         }
         return false
     }
-}
-
-enum CustomColor {
-    static let color1 = Color("Color1")
-    static let color2 = Color("Color2")
-    static let color3 = Color("Color3")
 }
 
 extension Double {

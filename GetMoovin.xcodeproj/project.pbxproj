@@ -29,6 +29,7 @@
 		653A256228338800005D4D48 /* GetMoovinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* GetMoovinTests.swift */; };
 		75D1429629B5450B00E1856C /* PercentageRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1429529B5450B00E1856C /* PercentageRing.swift */; };
 		A68A2FCD29BDEBB3006B7112 /* MotivationalQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */; };
+		A68A2FD329C1502B006B7112 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68A2FD229C1502B006B7112 /* CustomColor.swift */; };
 		C6673AEE29BA65500010A474 /* PhotoGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6673AED29BA65500010A474 /* PhotoGallery.swift */; };
 		E1DE30F429A6A13500686FCE /* PhotoUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DE30F329A6A13500686FCE /* PhotoUpload.swift */; };
 		F70828F729ADA5FE00495605 /* DailyProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */; };
@@ -73,6 +74,7 @@
 		653A258928339462005D4D48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D1429529B5450B00E1856C /* PercentageRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentageRing.swift; sourceTree = "<group>"; };
 		A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationalQuote.swift; sourceTree = "<group>"; };
+		A68A2FD229C1502B006B7112 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		C6673AED29BA65500010A474 /* PhotoGallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGallery.swift; sourceTree = "<group>"; };
 		E1DE30F229A69F7A00686FCE /* GetMoovinModules */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GetMoovinModules; sourceTree = "<group>"; };
 		E1DE30F329A6A13500686FCE /* PhotoUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUpload.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				2F9A486029AB57990041F064 /* TodaysGoal.swift */,
 				F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */,
 				75D1429529B5450B00E1856C /* PercentageRing.swift */,
+				A68A2FD229C1502B006B7112 /* CustomColor.swift */,
 			);
 			path = TodaysGoal;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */,
 				F70828F929AF13FC00495605 /* LongTermProgressChartView.swift in Sources */,
 				E1DE30F429A6A13500686FCE /* PhotoUpload.swift in Sources */,
+				A68A2FD329C1502B006B7112 /* CustomColor.swift in Sources */,
 				C6673AEE29BA65500010A474 /* PhotoGallery.swift in Sources */,
 				2F9A485F29AB57480041F064 /* LongtermProgress.swift in Sources */,
 				F70828F729ADA5FE00495605 /* DailyProgressCircleView.swift in Sources */,

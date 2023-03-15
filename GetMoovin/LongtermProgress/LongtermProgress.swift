@@ -18,7 +18,7 @@ struct LongtermProgress: View {
     
     var body: some View {
         NavigationStack {
-            ChartView()
+            LongTermProgressChartView()
                 .navigationTitle("LONGTERM_PROGRESS_TITLE")
                 .padding()
         }
