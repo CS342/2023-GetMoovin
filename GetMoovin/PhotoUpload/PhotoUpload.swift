@@ -6,10 +6,10 @@
 // SPDX-License-Identifier: MIT
 //
 
-import ImageSource
 import GetMoovinSharedContext
-import SwiftUI
 import GetMoovinStepCountModule
+import ImageSource
+import SwiftUI
 
 
 struct PhotoUpload: View {

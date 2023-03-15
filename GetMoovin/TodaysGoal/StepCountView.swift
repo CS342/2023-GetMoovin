@@ -13,6 +13,7 @@ import GetMoovinStepCountModule
 import ImageSource
 import Onboarding
 import SwiftUI
+import UserNotifications
     
 struct StepsInfo: Identifiable {
     var id = UUID()
@@ -114,7 +115,7 @@ struct StepCountView: View {
                 reminderText
             }
         }
-        .scaleEffect(0.9) 
+        .scaleEffect(0.9)
         .refreshable {
             loadStepCount()
         }

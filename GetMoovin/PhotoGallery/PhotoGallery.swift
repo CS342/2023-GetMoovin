@@ -6,22 +6,21 @@
 //// SPDX-License-Identifier: MIT
 ////
 //
-import SwiftUI
+import GetMoovinSharedContext
+import GetMoovinStepCountModule
 import Photos
 import PhotosUI
-import GetMoovinStepCountModule
-import GetMoovinSharedContext
+import SwiftUI
 
 
 struct PhotoGallery: View {
-
     private var photos = [PHAsset]()
 
     init() {
         fetchPhotos()
     }
 
-    mutating private func fetchPhotos() {
+    private mutating func fetchPhotos() {
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: .image, options: options)
@@ -53,7 +52,8 @@ struct PhotoGallery: View {
             for: asset,
             targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
             contentMode: .aspectFill,
-            options: options) { (image, info) in
+            options: options
+        ) { image, _ in
             resultImage = image
         }
         return resultImage
@@ -65,4 +65,3 @@ struct PhotoGallery_Previews: PreviewProvider {
         PhotoGallery()
     }
 }
-
