@@ -6,19 +6,16 @@
 // SPDX-License-Identifier: MIT
 //
 
-import Onboarding
 import GetMoovinSharedContext
 import GetMoovinStepCountModule
-import UserNotifications
+import Onboarding
 import SwiftUI
-
+import UserNotifications
+// swiftlint:disable legacy_objc_type
 class NotificationSetup {
-    
     init() {
-        
         let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { _, _ in
         }
     }
     
@@ -32,29 +29,15 @@ class NotificationSetup {
         
         var datComp = DateComponents()
         let date = Date()
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         datComp.hour = calendar.component(.hour, from: date)
         datComp.minute = calendar.component(.minute, from: date)
         datComp.second = 59
         let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
         let request = UNNotificationRequest(identifier: "ID", content: notificationContent, trigger: trigger)
-        UNUserNotificationCenter.current().add(request) { (error : Error?) in
+        UNUserNotificationCenter.current().add(request) { (error: Error?) in
             if let theError = error {
                 print(theError.localizedDescription)
-            }
-        }
-    }
-    class DailyNotif {
-        @EnvironmentObject var stepCountDataSource: StepCountDataSource
-        @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
-        
-        var stepsLeft: Int {
-            (userInformation.stepGoal ?? 1000) - (stepCountDataSource.todaysSteps ?? 1000)
-        }
-        func dailyNotif1() {
-            if stepsLeft > 0 {
-                let notify = NotificationSetup()
-                notify.notificationTrigger()
             }
         }
     }
