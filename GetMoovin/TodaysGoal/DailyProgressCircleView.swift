@@ -11,6 +11,7 @@ import GetMoovinSharedContext
 import GetMoovinStepCountModule
 import SwiftUI
 
+
 struct DailyProgressCircle: View {
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
@@ -36,28 +37,27 @@ struct DailyProgressCircle: View {
                     backgroundColor: CustomColor.color1.opacity(0.1),
                     foregroundColors: [CustomColor.color1, CustomColor.color3, CustomColor.color2]
                 )
-                .frame(width: 300, height: 300)
-                .previewLayout(.sizeThatFits)
-                Text("\(Int(progressValue * 100))%")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .foregroundColor(.blue)
-            }
-            
-            if progressValue < 1.0 {
+                .scaledToFit()
+                .frame(width: 360, height: 280)
+                // .previewLayout(.sizeThatFits)
                 Text("Today's Steps")
                     .font(.system(size: 18, weight: .semibold))
                     .foregroundColor(.gray)
+                    .padding(.bottom, 75)
                 Text("\(todaysSteps ?? 0)")
                     .font(.system(size: 40, weight: .bold))
-                    .foregroundColor(.blue)
+                    .foregroundColor(CustomColor.color2)
+            }
+            
+            if progressValue < 1.0 {
+                Text("\(Int(progressValue * 100))%")
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .foregroundColor(CustomColor.color1)
             } else {
                 VStack(spacing: 16) {
-                    Text("Congratulations!")
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.black)
                     Text("You've met your daily goal!")
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.black)
+                        .foregroundColor(CustomColor.color1)
                     Button("🎉") { counter += 1 }
                         .confettiCannon(counter: $counter)
                 }
@@ -65,7 +65,7 @@ struct DailyProgressCircle: View {
         }
         .padding()
         .background(Color(UIColor.systemGray6))
-        .cornerRadius(16)
+        .cornerRadius(20)
     }
 }
 

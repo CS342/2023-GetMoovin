@@ -142,6 +142,17 @@ struct PercentageRing: View {
     }
 }
 
+<<<<<<< HEAD
+=======
+enum CustomColor {
+    static let color1 = Color("Color1")
+    static let color2 = Color("Color2")
+    static let color3 = Color("Color3")
+    static let color4 = Color("Color4")
+    static let color5 = Color("Color5")
+}
+
+>>>>>>> 67744fe1c971a59afb29e79572341b48dc82dc30
 extension Double {
     func toRadians() -> Double {
         self * Double.pi / 180

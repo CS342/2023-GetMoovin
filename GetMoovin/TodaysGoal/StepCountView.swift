@@ -76,6 +76,7 @@ struct StepCountView: View {
     
     @State var todaysSteps: Int?
     @State var showingSheet = false
+    @State var changeGoalSheet = false
     
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
@@ -91,29 +92,43 @@ struct StepCountView: View {
     
     var body: some View {
         VStack {
+            HStack (
+                alignment: .center,
+                spacing: 17) {
+                // Step Goal Text
+                Text("STEP GOAL: \(stepGoal)")
+                    .font(.title3.bold())
+                    .foregroundColor(CustomColor.color1)
+                changeGoalButton
+            }
+            .frame(width: 385, height: 80)
+            .scaledToFit()
+            .background(Color(UIColor.systemGray6))
+            .cornerRadius(20)
+            .padding(.bottom, 8)
             // Daily Progress Circle
             dailyProgressCircle
-            
-            // Step Goal Text
-            Text("Current step goal: \(stepGoal)")
-                .font(.headline)
-                .foregroundColor(.secondary)
-                .padding(.bottom, 8)
-            
             // Congratulation or Reminder Text
-            if stepsLeft <= 0 {
-                VStack(spacing: 20) {
-                    if stepsLeft < 0 {
-                        exceededGoalText
+            VStack {
+                if stepsLeft <= 0 {
+                    VStack(alignment: .center) {
+                        if stepsLeft < 0 {
+                            exceededGoalText
+                        }
+                        congratulationsText
+                            .padding(.top, 20)
+                        takePhotoButton
                     }
-                    congratulationsText
-                    takePhotoButton
+                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 20)
+                    .padding(.horizontal, 20)
+                } else {
+                    reminderText
                 }
-                .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 20)
-                .padding(.horizontal, 20)
-            } else {
-                reminderText
             }
+            .frame(width: 385, height: 150)
+            .scaledToFit()
+            .background(Color(UIColor.systemGray6))
+            .cornerRadius(20)
         }
         .scaleEffect(0.9)
         .refreshable {
@@ -125,15 +140,16 @@ struct StepCountView: View {
         .onChange(of: scenePhase) { _ in
             loadStepCount()
         }
+        .padding(.top, 15)
     }
+        
     
     // Subviews
     
     private var dailyProgressCircle: some View {
         VStack {
             DailyProgressCircle(todaysSteps: $todaysSteps)
-                .padding(.top, 20)
-                .padding(.bottom, 20)
+                .padding(.bottom, 8)
         }
     }
     
@@ -145,11 +161,34 @@ struct StepCountView: View {
             .padding(.horizontal, 32)
     }
     
+    private var changeGoalButton: some View {
+        Button("Change Goal") {
+            changeGoalSheet.toggle()
+            changeGoalSheet = true
+        }
+        .foregroundColor(CustomColor.color2)
+        .font(.title3)
+        .overlay(RoundedRectangle(cornerRadius: 15).stroke(CustomColor.color2, lineWidth: 2).frame(width: 135, height: 35))
+        .padding()
+        .sheet(isPresented: $changeGoalSheet) {
+            ChangeGoal()
+                .padding(.bottom, 20)
+            Button("Dismiss") {
+                changeGoalSheet = false
+            }
+            .foregroundColor(.white)
+            .font(.title3)
+            .padding()
+            .background(CustomColor.color2)
+            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
+        }
+    }
+    
     private var congratulationsText: some View {
         Text("Congratulations!")
             .font(.title)
             .fontWeight(.bold)
-            .foregroundColor(.primary)
+            .foregroundColor(CustomColor.color1)
     }
     
     private var takePhotoButton: some View {
@@ -164,14 +203,23 @@ struct StepCountView: View {
         .sheet(isPresented: $showingSheet) {
             SheetView()
                 .padding(.bottom, 20)
+            Button("Dismiss") {
+                showingSheet = false
+            }
+            .foregroundColor(.white)
+            .font(.title3)
+            .padding()
+            .background(CustomColor.color2)
+            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
         }
     }
     
     private var reminderText: some View {
         Text("You still need \(stepsLeft) steps to reach your goal!")
             .font(.title3)
+            .multilineTextAlignment(.center)
             .fontWeight(.semibold)
-            .foregroundColor(.black)
+            .foregroundColor(CustomColor.color1)
             .padding(.horizontal, 32)
     }
     

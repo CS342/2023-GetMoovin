@@ -16,6 +16,7 @@ public struct OnboardingFlow: View {
         case information
         case goalSetting
         case healthKitPermissions
+        case notifications
     }
     
     
@@ -32,7 +33,9 @@ public struct OnboardingFlow: View {
                     case .goalSetting:
                         GoalSetting(onboardingSteps: $onboardingSteps)
                     case .healthKitPermissions:
-                        HealthKitPermissions()
+                        HealthKitPermissions(onboardingSteps: $onboardingSteps)
+                    case .notifications:
+                        NotificationPermissions()
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
