@@ -13,7 +13,7 @@ import GetMoovinStepCountModule
 import ImageSource
 import Onboarding
 import SwiftUI
-    
+
 struct StepsInfo: Identifiable {
     var id = UUID()
     var type: String
@@ -32,17 +32,17 @@ struct SheetView: View {
             Image(uiImage: $0) // swiftlint:disable:this accessibility_label_for_image
         }
     }
-    
+
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
         return selectedGoalAnswer
     }
-    
+
     var stepsLeft: Int {
         _ = Int(userSelectedGoal) ?? 1000
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
-    
+
     var body: some View {
         NavigationStack {
                 ImageSource(image: $image)
@@ -67,67 +67,33 @@ struct SheetView: View {
 
 struct StepCountView: View {
     // Properties
-    
+
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var stepCountDataSource: StepCountDataSource
     @AppStorage(StorageKeys.userInformation) var userInformation = UserInformation()
     @AppStorage(StorageKeys.selectedGoalAnswer) var userSelectedGoal = ""
-    
+
     @State var todaysSteps: Int?
     @State var showingSheet = false
     @State var changeGoalSheet = false
-    
+
     var stepGoal: Int {
         let selectedGoalAnswer = Int(userSelectedGoal) ?? 1000
         return selectedGoalAnswer
     }
-    
+
     var stepsLeft: Int {
         _ = Int(userSelectedGoal) ?? 1000
         return max(0, stepGoal - (stepCountDataSource.todaysSteps ?? 0))
     }
-    
+
     // Body
-    
+
     var body: some View {
         VStack {
-            HStack (
-                alignment: .center,
-                spacing: 17) {
-                // Step Goal Text
-                Text("STEP GOAL: \(stepGoal)")
-                    .font(.title3.bold())
-                    .foregroundColor(CustomColor.color1)
-                changeGoalButton
-            }
-            .frame(width: 385, height: 80)
-            .scaledToFit()
-            .background(Color(UIColor.systemGray6))
-            .cornerRadius(20)
-            .padding(.bottom, 8)
-            // Daily Progress Circle
+            stepGoalSection
             dailyProgressCircle
-            // Congratulation or Reminder Text
-            VStack {
-                if stepsLeft <= 0 {
-                    VStack(alignment: .center) {
-                        if stepsLeft < 0 {
-                            exceededGoalText
-                        }
-                        congratulationsText
-                            .padding(.top, 20)
-                        takePhotoButton
-                    }
-                    .padding(.bottom, UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 20)
-                    .padding(.horizontal, 20)
-                } else {
-                    reminderText
-                }
-            }
-            .frame(width: 385, height: 150)
-            .scaledToFit()
-            .background(Color(UIColor.systemGray6))
-            .cornerRadius(20)
+            congratulationOrReminderSection
         }
         .scaleEffect(0.9)
         .refreshable {
@@ -141,17 +107,65 @@ struct StepCountView: View {
         }
         .padding(.top, 15)
     }
-        
-    
+
+    private var stepGoalSection: some View {
+        HStack(
+            alignment: .center,
+            spacing: 17
+        ) {
+            Text("STEP GOAL: \(stepGoal)")
+                .font(.title3.bold())
+                .foregroundColor(CustomColor.color1)
+            changeGoalButton
+        }
+        .frame(width: 385, height: 80)
+        .scaledToFit()
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(20)
+        .padding(.bottom, 8)
+    }
+
+    private var congratulationOrReminderSection: some View {
+        VStack {
+            if stepsLeft <= 0 {
+                VStack(alignment: .center) {
+                    if stepsLeft < 0 {
+                        exceededGoalText
+                    }
+                    congratulationsText
+                        .padding(.top, 20)
+                    takePhotoButton
+                }
+                .padding(.bottom, bottomPadding)
+                .padding(.horizontal, 20)
+            } else {
+                reminderText
+            }
+        }
+        .frame(width: 385, height: 150)
+        .scaledToFit()
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(20)
+    }
+
+    private var bottomPadding: CGFloat {
+        UIApplication.shared.connectedScenes
+            .first { $0.activationState == .foregroundActive }
+            .flatMap { $0 as? UIWindowScene }?
+            .windows
+            .first { $0.isKeyWindow }?
+            .safeAreaInsets.bottom ?? 20
+    }
+
     // Subviews
-    
+
     private var dailyProgressCircle: some View {
         VStack {
             DailyProgressCircle(todaysSteps: $todaysSteps)
                 .padding(.bottom, 8)
         }
     }
-    
+
     private var exceededGoalText: some View {
         Text("You have exceeded your goal by \(abs(stepsLeft)) steps today!")
             .font(.headline)
@@ -159,7 +173,7 @@ struct StepCountView: View {
             .multilineTextAlignment(.center)
             .padding(.horizontal, 32)
     }
-    
+
     private var changeGoalButton: some View {
         Button("Change Goal") {
             changeGoalSheet.toggle()
@@ -182,14 +196,14 @@ struct StepCountView: View {
             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
         }
     }
-    
+
     private var congratulationsText: some View {
         Text("Congratulations!")
             .font(.title)
             .fontWeight(.bold)
             .foregroundColor(CustomColor.color1)
     }
-    
+
     private var takePhotoButton: some View {
         Button("Take your photo") {
             showingSheet.toggle()
@@ -212,7 +226,7 @@ struct StepCountView: View {
             .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
         }
     }
-    
+
     private var reminderText: some View {
         Text("You still need \(stepsLeft) steps to reach your goal!")
             .font(.title3)
@@ -221,14 +235,13 @@ struct StepCountView: View {
             .foregroundColor(CustomColor.color1)
             .padding(.horizontal, 32)
     }
-    
+
     private func loadStepCount() {
         Task {
-            todaysSteps = await stepCountDataSource.todaysSteps
+            todaysSteps = stepCountDataSource.todaysSteps
         }
     }
 }
-
 
 #if DEBUG
     struct StepCountView_Previews: PreviewProvider {

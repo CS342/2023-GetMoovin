@@ -24,6 +24,7 @@
 		2F9A486129AB57990041F064 /* TodaysGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9A486029AB57990041F064 /* TodaysGoal.swift */; };
 		2FC9759F2978E39600BA99FE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FC9759E2978E39600BA99FE /* Localizable.strings */; };
 		2FC975A82978F11A00BA99FE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC975A72978F11A00BA99FE /* Home.swift */; };
+		6340B62229BF383A0053D526 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6340B62129BF383A0053D526 /* SwiftUIView.swift */; };
 		653A2551283387FE005D4D48 /* GetMoovin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A2550283387FE005D4D48 /* GetMoovin.swift */; };
 		653A255528338800005D4D48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 653A255428338800005D4D48 /* Assets.xcassets */; };
 		653A256228338800005D4D48 /* GetMoovinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653A256128338800005D4D48 /* GetMoovinTests.swift */; };
@@ -66,6 +67,8 @@
 		2FC94CD4298B0A1D009C8209 /* GetMoovin.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetMoovin.xctestplan; sourceTree = "<group>"; };
 		2FC9759E2978E39600BA99FE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		2FC975A72978F11A00BA99FE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		6340B61D29BF2D360053D526 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		6340B62129BF383A0053D526 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		653A254D283387FE005D4D48 /* GetMoovin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetMoovin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		653A2550283387FE005D4D48 /* GetMoovin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoovin.swift; sourceTree = "<group>"; };
 		653A255428338800005D4D48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 				2F9A486029AB57990041F064 /* TodaysGoal.swift */,
 				F70828F629ADA5FE00495605 /* DailyProgressCircleView.swift */,
 				75D1429529B5450B00E1856C /* PercentageRing.swift */,
+				6340B61D29BF2D360053D526 /* SwiftUIView.swift */,
 				75A3246A29BE4D5A00C2FCBE /* ChangeGoal.swift */,
 			);
 			path = TodaysGoal;
@@ -142,9 +146,10 @@
 		2F9A485D29AB57370041F064 /* LongtermProgress */ = {
 			isa = PBXGroup;
 			children = (
-				2F9A485E29AB57480041F064 /* LongtermProgress.swift */,
 				F70828F829AF13FC00495605 /* LongTermProgressChartView.swift */,
+				2F9A485E29AB57480041F064 /* LongtermProgress.swift */,
 				F70828FA29AF178400495605 /* NewLongTermView.swift */,
+				6340B62129BF383A0053D526 /* SwiftUIView.swift */,
 				A68A2FCC29BDEBB3006B7112 /* MotivationalQuote.swift */,
 			);
 			path = LongtermProgress;
@@ -406,6 +411,7 @@
 			files = (
 				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
 				2F4E23832989D51F0013F3D9 /* GetMoovinAppTestingSetup.swift in Sources */,
+				6340B62229BF383A0053D526 /* SwiftUIView.swift in Sources */,
 				75D1429629B5450B00E1856C /* PercentageRing.swift in Sources */,
 				A68A2FCD29BDEBB3006B7112 /* MotivationalQuote.swift in Sources */,
 				2F5E32BD297E05EA003432F8 /* GetMoovinAppDelegate.swift in Sources */,
